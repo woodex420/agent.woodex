@@ -21,23 +21,28 @@ import { draftMode } from "next/headers";
 
 export const metadata: Metadata = {
   title: {
-    default: "Woodex Interior — Approve it in 3D. Get exactly that.",
+    default: "Woodex Interior — Lahore design-and-build studio · 3D-first · 98% on-time",
     template: "%s · Woodex Interior",
   },
   description:
-    "Design-and-build interior studio in Lahore. Commercial, residential, corporate and retail fit-outs with a 3D-first process. Approve it in 3D. Get exactly that. On the date we said.",
+    "Design-and-build interior studio in Lahore since 2014. 240+ projects delivered, PKR 2,200–9,000/sqft, 10-day formal quotes, 48-hour budget ranges. Commercial, residential, corporate, retail, turnkey, 3D.",
   metadataBase: new URL("https://woodex.studio"),
   openGraph: {
     type: "website",
-    title: "Woodex Interior",
+    title: "Woodex Interior — Lahore design-and-build studio",
     description:
-      "Design-and-build interior studio. 3D-first process, fixed dates, zero surprises.",
+      "240+ projects delivered, 98% on the contract date, PKR 2,200–9,000/sqft. Approve it in 3D. Get exactly that.",
+    locale: "en_PK",
+    siteName: "Woodex Interior",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Woodex Interior",
+    title: "Woodex Interior — Lahore design-and-build",
     description:
-      "Design-and-build interior studio. 3D-first process, fixed dates, zero surprises.",
+      "240+ projects, 98% on-time, fixed-price, Friday-report delivery.",
+  },
+  alternates: {
+    canonical: "/",
   },
 };
 

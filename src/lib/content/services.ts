@@ -172,7 +172,7 @@ export const SERVICES: Record<string, ServiceContent> = {
     },
     scope: {
       included: [
-        "Bespoke space planning for how your family lives",
+        "Custom space planning for how your family lives",
         "Mood boards + finishes + material samples at studio",
         "Photoreal 3D walkthrough of every room",
         "Civil works, flooring, ceilings, electrical, plumbing",
@@ -1066,7 +1066,7 @@ SERVICES["custom-furniture"] = {
   ],
   relatedProjects: [
     { slug: "dha-residence-2", title: "DHA Phase 5 Residence", tag: "Residential · full joinery", img: "linear-gradient(135deg,rgba(30,25,20,0.5),rgba(70,50,30,0.5)),url(/images/svc-residential.jpg)" },
-    { slug: "nishat-hospitality-hq", title: "Nishat Boardroom Table", tag: "Corporate · bespoke", img: "linear-gradient(135deg,rgba(20,15,15,0.55),rgba(65,45,25,0.5)),url(/images/svc-corporate.jpg)" },
+    { slug: "nishat-hospitality-hq", title: "Nishat Boardroom Table", tag: "Corporate · custom", img: "linear-gradient(135deg,rgba(20,15,15,0.55),rgba(65,45,25,0.5)),url(/images/svc-corporate.jpg)" },
     { slug: "cafe-zouk-gulberg", title: "Café Zouk Banquettes", tag: "F&B · upholstery", img: "linear-gradient(135deg,rgba(23,23,23,0.55),rgba(60,45,30,0.5)),url(/images/portfolio-cafe.jpg)" },
   ],
   team: { name: "Saqib Ullah", role: "Workshop Foreman", note: "26 years as a master carpenter. Hires, trains, and signs off every joiner. If he wouldn't put the piece in his own house, it doesn't leave Sundar Road." },

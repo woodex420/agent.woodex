@@ -44,7 +44,7 @@ export default function ProofStack() {
       <div className="container-x">
         <div className="grid lg:grid-cols-12 gap-12 items-start">
           <div className="lg:col-span-5 lg:sticky lg:top-32">
-            <div className="flex items-center gap-3 text-xs uppercase tracking-[0.25em] text-[var(--oak-300)] mb-5">
+            <div className="kicker text-[var(--oak-300)] mb-5" aria-hidden>
               <span className="w-8 h-px bg-[var(--oak-400)]" />
               Proof, not adjectives
             </div>
@@ -95,7 +95,7 @@ export default function ProofStack() {
                   <span className="absolute -top-4 left-6 text-[var(--oak-400)] font-display text-7xl leading-none" aria-hidden>
                     &ldquo;
                   </span>
-                  <blockquote className="font-display text-xl md:text-2xl leading-snug mb-6 text-white/95">
+                  <blockquote className="font-display text-xl md:text-2xl leading-snug mb-6 text-white/90">
                     {r.quote}
                   </blockquote>
                   <figcaption className="flex items-end justify-between gap-4 flex-wrap pt-4 border-t border-white/10">

@@ -85,18 +85,29 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, Props>(
       ? { transform: `translate3d(${offset.x}px, ${offset.y}px, 0)` }
       : undefined;
 
+    // Default arrow drift — if children ends in → and no iconRight provided, drift the trailing arrow
+    const childText = typeof children === "string" ? children : "";
+    const trailingArrow = !iconRight && childText.trim().endsWith("→");
+    const content = trailingArrow ? childText.trim().slice(0, -1).trim() : children;
+
     const innerContent = (state: "liquid" | "outline" | "ghost" | "dark" | "glass" | "inline") => {
+      const arrowEl = (
+        <span className="arrow" aria-hidden>
+          {iconRight ? iconRight : "→"}
+        </span>
+      );
+
       if (state === "liquid") {
         return (
           <>
             <span
               aria-hidden
-              className="absolute inset-0 -z-10 bg-[var(--oak-500)] translate-y-full transition-transform duration-500 ease-[var(--ease-out-expo)] group-hover:translate-y-0"
+              className="absolute inset-0 -z-10 bg-[var(--oak-500)] dark:bg-[var(--oak-400)] translate-y-full transition-transform duration-500 ease-[var(--ease-out-expo)] group-hover:translate-y-0"
             />
             <span className="relative z-10 flex items-center gap-inherit group-hover:text-white transition-colors duration-500">
               {loading ? <Spinner /> : icon}
-              <span>{children}</span>
-              {iconRight}
+              <span>{content}</span>
+              {(iconRight || trailingArrow) && arrowEl}
             </span>
           </>
         );
@@ -105,8 +116,8 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, Props>(
         return (
           <span className="relative flex items-center gap-inherit">
             {loading ? <Spinner /> : icon}
-            <span>{children}</span>
-            {iconRight}
+            <span>{content}</span>
+            {(iconRight || trailingArrow) && arrowEl}
           </span>
         );
       }
@@ -115,12 +126,12 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, Props>(
           <>
             <span
               aria-hidden
-              className="absolute inset-0 -z-10 bg-[var(--oak-400)] translate-y-full transition-transform duration-500 ease-[var(--ease-out-expo)] group-hover:translate-y-0"
+              className="absolute inset-0 -z-10 bg-white translate-y-full transition-transform duration-500 ease-[var(--ease-out-expo)] group-hover:translate-y-0"
             />
             <span className="relative z-10 flex items-center gap-inherit group-hover:text-[var(--graphite-900)] transition-colors duration-500">
               {loading ? <Spinner /> : icon}
-              <span>{children}</span>
-              {iconRight}
+              <span>{content}</span>
+              {(iconRight || trailingArrow) && arrowEl}
             </span>
           </>
         );
@@ -130,12 +141,12 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, Props>(
           <>
             <span
               aria-hidden
-              className="absolute inset-0 -z-10 bg-white/10 backdrop-blur-md border border-white/30 group-hover:bg-white/20 group-hover:border-white/50 transition-colors duration-500"
+              className="absolute inset-0 -z-10 bg-white/12 backdrop-blur-md border border-white/30 group-hover:bg-white/25 group-hover:border-white/60 transition-all duration-500"
             />
             <span className="relative z-10 flex items-center gap-inherit text-white">
               {loading ? <Spinner /> : icon}
-              <span>{children}</span>
-              {iconRight}
+              <span>{content}</span>
+              {(iconRight || trailingArrow) && arrowEl}
             </span>
           </>
         );
@@ -143,8 +154,8 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, Props>(
       return (
         <span className="relative flex items-center gap-inherit">
           {loading ? <Spinner /> : icon}
-          <span>{children}</span>
-          {iconRight}
+          <span>{content}</span>
+          {(iconRight || trailingArrow) && arrowEl}
         </span>
       );
     };
@@ -156,10 +167,10 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, Props>(
         base,
         sizeClasses,
         "group",
-        variant === "liquid" && "border border-[var(--fg)] text-[var(--fg)] bg-transparent isolation-auto",
+        variant === "liquid" && "border border-[var(--border-strong)] text-[var(--fg)] bg-transparent isolation-auto hover:border-[var(--oak-500)]",
         variant === "outline" && "border border-[var(--border-strong)] text-[var(--fg)] hover:border-[var(--oak-500)] hover:text-[var(--oak-600)]",
         variant === "ghost" && "text-[var(--fg)] hover:text-[var(--oak-600)] px-2 after:absolute after:left-2 after:right-2 after:bottom-2 after:h-px after:bg-current after:origin-left after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100",
-        variant === "dark" && "border border-white/30 text-white",
+        variant === "dark" && "border border-white/30 text-white hover:border-white",
         variant === "glass" && "text-white border-0 p-0",
         variant === "inline" && "inline-flex items-center gap-1.5 text-[var(--fg)] underline-offset-4 hover:underline decoration-[var(--oak-500)]",
         className
@@ -187,8 +198,10 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, Props>(
           href={href}
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
+          onTouchStart={undefined}
           style={style}
           className={classes}
+          data-magnetic={magnetic || undefined}
           {...rest}
         >
           {innerContent(variant)}
@@ -202,11 +215,11 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, Props>(
       base,
       sizeClasses,
       "group",
-      variant === "liquid" && "border border-[var(--fg)] text-[var(--fg)] bg-transparent isolation-auto",
+      variant === "liquid" && "border border-[var(--border-strong)] text-[var(--fg)] bg-transparent isolation-auto hover:border-[var(--oak-500)]",
       variant === "outline" && "border border-[var(--border-strong)] text-[var(--fg)] hover:border-[var(--oak-500)] hover:text-[var(--oak-600)]",
       variant === "ghost" && "text-[var(--fg)] hover:text-[var(--oak-600)] px-2 after:absolute after:left-2 after:right-2 after:bottom-2 after:h-px after:bg-current after:origin-left after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100",
-      variant === "dark" && "border border-white/30 text-white",
-        variant === "glass" && "text-white border-0 p-0",
+      variant === "dark" && "border border-white/30 text-white hover:border-white",
+      variant === "glass" && "text-white border-0 p-0",
       variant === "inline" && "inline-flex items-center gap-1.5 text-[var(--fg)] underline-offset-4 hover:underline decoration-[var(--oak-500)]",
       className
     );
@@ -218,6 +231,7 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, Props>(
         onMouseLeave={handleMouseLeave}
         style={style}
         className={classes}
+        data-magnetic={magnetic || undefined}
         {...rest}
       >
         {innerContent(variant)}
