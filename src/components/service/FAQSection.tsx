@@ -1,0 +1,70 @@
+"use client";
+
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import type { Faq } from "@/lib/content/services";
+
+export default function FAQSection({ faqs }: { faqs: Faq[] }) {
+  const [open, setOpen] = useState<number | null>(0);
+  return (
+    <section id="faqs" className="section-pad bg-[var(--bg)]">
+      <div className="container-x grid lg:grid-cols-12 gap-12">
+        <div className="lg:col-span-4">
+          <div className="flex items-center gap-3 text-xs uppercase tracking-[0.25em] text-[var(--fg-muted)] mb-5">
+            <span className="w-8 h-px bg-[var(--oak-500)]" />
+            Five questions
+          </div>
+          <h2 className="font-display text-[var(--fs-h2)] leading-[1.05] mb-6">
+            The specific ones<br />
+            <span className="italic-serif text-[var(--oak-600)]">you'd ask over tea.</span>
+          </h2>
+          <p className="text-[var(--fg-muted)] text-lg leading-relaxed max-w-md">
+            Not generic FAQ copy. These are the questions our project leads actually get in the first meeting.
+          </p>
+        </div>
+
+        <div className="lg:col-span-8 divide-y divide-[var(--border)] border-y border-[var(--border)]">
+          {faqs.map((f, i) => {
+            const isOpen = open === i;
+            return (
+              <div key={f.q}>
+                <button
+                  onClick={() => setOpen(isOpen ? null : i)}
+                  aria-expanded={isOpen}
+                  className="w-full text-left py-6 flex items-start justify-between gap-6 group"
+                >
+                  <div className="flex gap-5 items-start">
+                    <span className="font-mono text-xs text-[var(--oak-500)] mt-2 tracking-widest">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className="font-display text-xl md:text-2xl leading-tight group-hover:text-[var(--oak-600)] transition-colors">
+                      {f.q}
+                    </h3>
+                  </div>
+                  <span
+                    className={`w-8 h-8 rounded-full border border-[var(--border-strong)] flex items-center justify-center flex-shrink-0 transition-transform duration-500 ${isOpen ? "rotate-45 bg-[var(--fg)] text-[var(--bg)] border-[var(--fg)]" : ""}`}
+                  >+</span>
+                </button>
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                      className="overflow-hidden"
+                    >
+                      <p className="pb-7 pl-[3.25rem] pr-10 text-[var(--fg-muted)] text-lg leading-relaxed max-w-2xl">
+                        {f.a}
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}

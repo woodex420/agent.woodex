@@ -1,0 +1,14 @@
+# Vercel ignore — reduces upload size
+.github/
+.agent/
+.tmp/
+*.log
+.DS_Store
+.env
+.env.*.local
+DEPLOY.md
+DOING-NEXT.md
+LIVE-BUILDER.md
+AGENTS.md
+CLAUDE.md
+src/components/builder/README.md
