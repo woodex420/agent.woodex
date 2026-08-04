@@ -25,8 +25,7 @@ export default function ConvoDiagram() {
     <section ref={ref} className="section-pad bg-[var(--bg-elevated)] border-y border-[var(--border)] relative">
       <div className="container-x grid lg:grid-cols-12 gap-12">
         <div className="lg:col-span-5">
-          <div className="flex items-center gap-3 text-xs uppercase tracking-[0.25em] text-[var(--fg-muted)] mb-5">
-            <span className="w-8 h-px bg-[var(--oak-500)]" />
+          <div className="kicker text-[var(--fg-muted)] mb-5">
             How communication works
           </div>
           <h2 className="font-display text-[var(--fs-h2)] leading-[1.05] mb-6">

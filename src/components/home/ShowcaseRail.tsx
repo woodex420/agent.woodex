@@ -50,11 +50,10 @@ export default function ShowcaseRail() {
     <section className="section-pad bg-[var(--bg)] overflow-hidden">
       <div className="container-x mb-8 md:mb-12 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 md:gap-6">
         <div>
-          <div className="flex items-center gap-3 text-xs uppercase tracking-[0.25em] text-[var(--fg-muted)] mb-4 md:mb-5">
-            <span className="w-8 h-px bg-[var(--oak-500)]" />
+          <div className="kicker text-[var(--fg-muted)] mb-4 md:mb-5">
             Selected work
           </div>
-          <h2 className="font-display text-[var(--fs-h2)] leading-[1.05]">
+          <h2 className="font-display text-[var(--fs-h2)] leading-[1.05] text-balance">
             Twenty-eight thousand<br />
             <span className="italic-serif text-[var(--oak-600)]">square feet of proof.</span>
           </h2>

@@ -56,8 +56,7 @@ export default function FitOutSplit() {
         <div className="grid lg:grid-cols-2 gap-0 lg:min-h-[300vh]">
           <div className="py-24 lg:py-32 lg:pr-16 space-y-[60vh]">
             <div className="lg:sticky lg:top-1/2 lg:-translate-y-1/2 mb-12">
-              <div className="flex items-center gap-3 text-xs uppercase tracking-[0.25em] text-[var(--oak-300)] mb-5">
-                <span className="w-8 h-px bg-[var(--oak-400)]" />
+              <div className="kicker text-[var(--oak-300)] mb-5">
                 The Fit-Out Method
               </div>
               <h2 className="font-display text-[var(--fs-h2)] leading-[1.05]">

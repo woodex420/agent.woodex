@@ -63,8 +63,7 @@ export default function AboutBrief() {
 
         {/* Text */}
         <motion.div style={{ y: textY }} className="lg:col-span-6">
-          <div className="flex items-center gap-3 text-xs uppercase tracking-[0.25em] text-[var(--fg-muted)] mb-6">
-            <span className="w-8 h-px bg-[var(--oak-500)]" />
+          <div className="kicker text-[var(--fg-muted)] mb-6">
             The problem with interiors
           </div>
           <h2 className="font-display text-[var(--fs-h2)] leading-[1.05] mb-8">

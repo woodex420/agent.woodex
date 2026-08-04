@@ -29,8 +29,7 @@ export default function Marquee() {
   return (
     <section className="py-12 md:py-14 border-y border-[var(--border)] bg-[var(--surface-1)] overflow-hidden">
       <div className="container-x mb-5 md:mb-6">
-        <div className="flex items-center gap-3 text-xs uppercase tracking-[0.25em] text-[var(--fg-muted)]">
-          <span className="w-6 h-px bg-[var(--oak-500)]" />
+        <div className="kicker text-[var(--fg-muted)]">
           Trusted by 120+ clients across Pakistan
         </div>
       </div>

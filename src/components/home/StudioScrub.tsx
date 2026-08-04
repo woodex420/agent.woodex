@@ -26,8 +26,7 @@ export default function StudioScrub() {
         <div className="grid lg:grid-cols-12 gap-10 items-center">
           {/* Copy */}
           <div className="lg:col-span-4 z-10">
-            <div className="flex items-center gap-3 text-xs uppercase tracking-[0.25em] text-[var(--oak-300)] mb-5">
-              <span className="w-8 h-px bg-[var(--oak-400)]" />
+            <div className="kicker text-[var(--oak-300)] mb-5">
               In-house 3D Studio
             </div>
             <h2 className="font-display text-[var(--fs-h2)] leading-[1.05] mb-6">

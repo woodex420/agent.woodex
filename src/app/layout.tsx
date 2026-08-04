@@ -7,6 +7,7 @@ import ThemeScript from "@/components/ThemeScript";
 import NavServer from "@/components/layout/Nav.server";
 import Footer from "@/components/layout/Footer";
 import ChatWidget from "@/components/ui/ChatWidget";
+import MobileStickyCTA from "@/components/ui/MobileStickyCTA";
 import JsonLd from "@/components/JsonLd";
 import AppMotionConfig from "@/components/providers/MotionConfig";
 import PreviewToolbar from "@/components/providers/PreviewToolbar";
@@ -79,6 +80,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                   <main id="main-content" className="flex-1">{children}</main>
                   <div className="no-print">
                     <Footer />
+                    <MobileStickyCTA />
                   </div>
                 </SmoothScroll>
                 <div className="no-print">

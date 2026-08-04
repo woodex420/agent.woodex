@@ -14,11 +14,10 @@ export default function FAQ() {
     <section className="section-pad bg-[var(--bg)]">
       <div className="container-x grid lg:grid-cols-12 gap-12">
         <div className="lg:col-span-4">
-          <div className="flex items-center gap-3 text-xs uppercase tracking-[0.25em] text-[var(--fg-muted)] mb-5">
-            <span className="w-8 h-px bg-[var(--oak-500)]" />
+          <div className="kicker text-[var(--fg-muted)] mb-5">
             Straight answers
           </div>
-          <h2 className="font-display text-[var(--fs-h2)] leading-[1.05] mb-6">
+          <h2 className="font-display text-[var(--fs-h2)] leading-[1.05] mb-6 text-balance">
             The questions<br />
             <span className="italic-serif text-[var(--oak-600)]">you're Googling.</span>
           </h2>
@@ -26,8 +25,8 @@ export default function FAQ() {
             Other studios hide pricing and timelines behind discovery calls. Here's what
             clients actually ask before they sign — and what we actually tell them.
           </p>
-          <Link href="/consultation" className="text-[var(--oak-600)] text-sm uppercase tracking-widest font-medium hover:underline">
-            Ask us anything →
+          <Link href="/consultation" className="text-[var(--oak-600)] text-sm uppercase tracking-widest font-medium hover:underline inline-flex items-center gap-2 group">
+            Ask us anything <span className="arrow">→</span>
           </Link>
         </div>
 

@@ -72,10 +72,9 @@ export default function ServicesGrid() {
       <div className="container-x">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-14">
           <div className="max-w-2xl">
-            <div className="flex items-center gap-3 text-xs uppercase tracking-[0.25em] text-[var(--fg-muted)] mb-5">
-              <span className="w-8 h-px bg-[var(--oak-500)]" />
-              What we do
-            </div>
+          <div className="kicker text-[var(--fg-muted)] mb-5">
+            What we do
+          </div>
             <h2 className="font-display text-[var(--fs-h2)] leading-[1.05]">
               Six specializations.<br />
               <span className="italic-serif text-[var(--oak-600)]">One delivery system.</span>

@@ -33,8 +33,7 @@ export default function CTAFinal() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="flex items-center gap-2 md:gap-3 text-[10px] md:text-xs uppercase tracking-[0.22em] md:tracking-[0.25em] mb-6 md:mb-8 text-[var(--graphite-900)]/70">
-              <span className="w-6 md:w-8 h-px bg-[var(--graphite-900)]" />
+            <div className="kicker mb-6 md:mb-8 text-[var(--graphite-900)]/70">
               The ask
             </div>
             <h2 className="font-display text-[var(--fs-h1)] leading-[0.98] mb-6 md:mb-8 max-w-[15ch] md:max-w-none">

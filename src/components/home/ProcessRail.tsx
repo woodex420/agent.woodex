@@ -63,11 +63,10 @@ export default function ProcessRail() {
       <div className="sticky top-0 h-screen overflow-hidden flex flex-col py-[var(--nav-h)]">
         {/* Heading */}
         <div className="container-x pt-10 pb-8">
-          <div className="flex items-center gap-3 text-xs uppercase tracking-[0.25em] text-[var(--fg-muted)] mb-4">
-            <span className="w-8 h-px bg-[var(--oak-500)]" />
+          <div className="kicker text-[var(--fg-muted)] mb-4">
             The Process
           </div>
-          <h2 className="font-display text-[var(--fs-h2)] leading-[1.05] max-w-2xl">
+          <h2 className="font-display text-[var(--fs-h2)] leading-[1.05] max-w-2xl text-balance">
             From first call to handover —<br />
             <span className="italic-serif text-[var(--oak-600)]">six steps, one timeline.</span>
           </h2>
@@ -106,11 +105,10 @@ export function ProcessRailMobile() {
     <section className="md:hidden section-pad bg-[var(--bg)]">
       <div className="container-x">
         <div className="mb-10">
-          <div className="flex items-center gap-3 text-xs uppercase tracking-[0.25em] text-[var(--fg-muted)] mb-4">
-            <span className="w-8 h-px bg-[var(--oak-500)]" />
+          <div className="kicker text-[var(--fg-muted)] mb-4">
             The Process
           </div>
-          <h2 className="font-display text-[var(--fs-h2)] leading-[1.05]">
+          <h2 className="font-display text-[var(--fs-h2)] leading-[1.05] text-balance">
             From first call to handover —<br />
             <span className="italic-serif text-[var(--oak-600)]">six steps, one timeline.</span>
           </h2>
