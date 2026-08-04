@@ -135,7 +135,7 @@ export const SERVICES: Record<string, ServiceContent> = {
     team: {
       name: "Hamza Saeed",
       role: "Lead Project Manager, Commercial",
-      note: "11 years commercial fit-outs, 40+ floors delivered. Writes the Friday Report himself every week.",
+      note: "12 years commercial fit-outs, 40+ floors delivered. Writes the Friday Report himself every week.",
     },
     cta: {
       line: "Site visit in 48 hours. Budget range in your inbox before the weekend.",
@@ -210,7 +210,7 @@ export const SERVICES: Record<string, ServiceContent> = {
     proof: {
       kind: "guarantee",
       heading: "The 3D-to-Build Guarantee.",
-      body: "If you walk through on handover day and any finished element doesn't match the approved 3D render, we redo it at our cost. In 11 years we've invoked this clause twice. Once we shipped the wrong marble. Once a carpenter cut a bookshelf 40mm short. Both were rebuilt within the same week. The photographs of the corrections are available on request — we keep them to stay honest.",
+      body: "If you walk through on handover day and any finished element doesn't match the approved 3D render, we redo it at our cost. In 12 years we've invoked this clause twice. Once we shipped the wrong marble. Once a carpenter cut a bookshelf 40mm short. Both were rebuilt within the same week. The photographs of the corrections are available on request — we keep them to stay honest.",
       guarantee: "Mismatch? We rebuild. Our cost. In writing.",
     },
     faqs: [

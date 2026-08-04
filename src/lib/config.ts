@@ -51,6 +51,6 @@ export const SLA = {
   delayCreditPerWeekPKR: 25000,
   onTimeRatePct: 98,
   projectsDelivered: "240+",
-  yearsOperating: 11,
+  yearsOperating: 12,
   founded: 2014,
 } as const;

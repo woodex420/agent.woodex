@@ -10,7 +10,7 @@ const VALUES = [
   {
     num: "01",
     title: "The date is in bold.",
-    body: "Every quote ends with a handover date. If we miss it for any reason within our control, the client gets PKR 25,000 per week credited back. We've paid this twice in 11 years. We have the receipts.",
+    body: "Every quote ends with a handover date. If we miss it for any reason within our control, the client gets PKR 25,000 per week credited back. We've paid this twice in 12 years. We have the receipts.",
   },
   {
     num: "02",
@@ -20,7 +20,7 @@ const VALUES = [
   {
     num: "03",
     title: "If the build doesn't match the render, we redo it.",
-    body: "That clause is in every SOW. In 11 years it has been invoked twice. We rebuilt both — wrong marble, and a bookshelf cut 40mm short — within the same week.",
+    body: "That clause is in every SOW. In 12 years it has been invoked twice. We rebuilt both — wrong marble, and a bookshelf cut 40mm short — within the same week.",
   },
   {
     num: "04",

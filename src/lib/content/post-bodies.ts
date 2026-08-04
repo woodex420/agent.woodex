@@ -42,7 +42,7 @@ export const POST_BODIES: BlockMap = {
       "**GST.** If the contractor is registered, add 18% on top. If they're not, they can't supply to commercial clients and their material purchases don't carry input credit.",
     ]},
     { type: "h2", text: "The only number that actually matters" },
-    { type: "p", text: "Per-sqft numbers are useful for sanity-checking but the number that actually matters is the **fixed, itemised quote** produced after drawings are signed off. In 11 years, 90% of budget blow-outs we've seen were because clients signed up to a per-sqft range and didn't demand a BoQ." },
+    { type: "p", text: "Per-sqft numbers are useful for sanity-checking but the number that actually matters is the **fixed, itemised quote** produced after drawings are signed off. In 12 years, 90% of budget blow-outs we've seen were because clients signed up to a per-sqft range and didn't demand a BoQ." },
     { type: "pullout", title: "Woodex rule of thumb", text: "If a quote is more than 15% cheaper than the midpoint of our published range, something is missing. Either the contractor plans to make it up on variations, plans to use cheaper materials than specified, or plans to not pay their labour (in which case you'll be redoing the job in 18 months)." },
   ],
 
@@ -156,7 +156,7 @@ export const POST_BODIES: BlockMap = {
   ],
 
   "9-mistakes-first-time-clients": [
-    { type: "p", text: "We've been doing this 11 years. Here are the nine mistakes we see first-time clients make, in order of how much money they cost." },
+    { type: "p", text: "We've been doing this 12 years. Here are the nine mistakes we see first-time clients make, in order of how much money they cost." },
     { type: "h3", text: "1. Hiring on 3D renders alone" },
     { type: "p", text: "A beautiful render tells you nothing about whether the contractor can build it. Ask to visit a finished project. Ask for the contractor's last three clients' phone numbers. Call them." },
     { type: "h3", text: "2. Buying property without checking MEP risers and structural constraints" },

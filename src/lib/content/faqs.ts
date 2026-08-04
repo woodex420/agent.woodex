@@ -15,7 +15,7 @@ export const HOME_FAQS = [
   },
   {
     q: "What if the build doesn't match the render?",
-    a: "We redo it at our cost. That clause is written into every SOW. In 11 years it has been invoked twice. Once we shipped the wrong marble; once a carpenter cut a bookshelf 40mm short. Both were rebuilt within the same week. Photographs of both corrections are available on request — we keep them as a reminder.",
+    a: "We redo it at our cost. That clause is written into every SOW. In 12 years it has been invoked twice. Once we shipped the wrong marble; once a carpenter cut a bookshelf 40mm short. Both were rebuilt within the same week. Photographs of both corrections are available on request — we keep them as a reminder.",
   },
   {
     q: "Do you do free 3D renders before we sign?",

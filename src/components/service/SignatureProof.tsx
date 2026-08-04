@@ -87,7 +87,7 @@ export default function SignatureProof({ proof }: { proof: ServiceContent["proof
                 <div className="font-display text-5xl md:text-7xl italic-serif text-[var(--oak-300)] leading-none mb-4">Match.</div>
                 <div className="font-display text-5xl md:text-7xl italic-serif text-[var(--oak-300)] leading-none mb-6">Or rebuild.</div>
                 <p className="text-white/60 max-w-sm mx-auto">
-                  A guarantee in the SOW. Invoked twice in 11 years. Both rebuilt at our cost within a week.
+                  A guarantee in the SOW. Invoked twice in 12 years. Both rebuilt at our cost within a week.
                 </p>
               </div>
             </div>

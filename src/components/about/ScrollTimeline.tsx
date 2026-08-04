@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 /**
- * ScrollTimeline — horizontal scroll-reveal of 11 years of milestones.
+ * ScrollTimeline — horizontal scroll-reveal of 12 years of milestones.
  * Signature motion: sticky container with year dot markers scrolling left
  * along a horizontal path as the user scrolls vertically.
  */
@@ -30,7 +30,7 @@ export default function ScrollTimeline() {
       <div className="container-x">
         <div className="flex items-center gap-3 text-xs uppercase tracking-[0.3em] text-[var(--oak-300)] mb-6">
           <span className="w-8 h-px bg-[var(--oak-400)]" />
-          Eleven years in
+          Twelve years in
         </div>
         <h2 className="font-display text-[var(--fs-h2)] leading-[1.05] max-w-3xl mb-16">
           The milestones <span className="italic-serif text-[var(--oak-300)]">no one puts on a plaque.</span>

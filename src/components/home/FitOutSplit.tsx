@@ -19,7 +19,7 @@ const PANELS = [
   {
     label: "Week 6",
     title: "The 3D-to-build match is contractual.",
-    body: "If the finished build doesn't match the approved render, we redo it at our cost. That clause has been invoked twice in 11 years. We've gotten sharper every time.",
+    body: "If the finished build doesn't match the approved render, we redo it at our cost. That clause has been invoked twice in 12 years. We've gotten sharper every time.",
     bg: "linear-gradient(160deg,rgba(5,5,5,0.7),rgba(60,45,30,0.4)),url(/images/hero-3d.jpg)",
   },
   {
