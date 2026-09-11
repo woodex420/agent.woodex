@@ -49,18 +49,18 @@ export default function ShowcaseRail() {
   return (
     <section className="section-pad bg-[var(--bg)] overflow-hidden">
       <div className="container-x mb-8 md:mb-12 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 md:gap-6">
-        <div>
+          <div>
           <div className="kicker text-[var(--fg-muted)] mb-4 md:mb-5">
-            Selected work
+            Featured work
           </div>
           <h2 className="font-display text-[var(--fs-h2)] leading-[1.05] text-balance">
-            Twenty-eight thousand<br />
-            <span className="italic-serif text-[var(--oak-600)]">square feet of proof.</span>
+            Designed around people.
+            <span className="block italic-serif text-[var(--oak-600)]">Built around purpose.</span>
           </h2>
         </div>
         <div className="flex items-center justify-between lg:justify-end gap-3 w-full lg:w-auto">
-          <Link href="/portfolio" className="lg:order-3 lg:ml-4 text-sm uppercase tracking-widest font-medium text-[var(--fg)] hover:text-[var(--oak-600)] transition">
-            Full portfolio →
+          <Link href="/work" className="lg:order-3 lg:ml-4 text-sm uppercase tracking-widest font-medium text-[var(--fg)] hover:text-[var(--oak-600)] transition">
+            View all work →
           </Link>
           <div className="flex items-center gap-2">
             <button

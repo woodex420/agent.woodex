@@ -6,15 +6,10 @@ import Image from "next/image";
 import Button from "@/components/ui/Button";
 
 /**
- * Cinematic Hero — Woodex Interior
- * 5 layers:
- *  1. Ken Burns background image (cross-fades between slides; active slide uses next/image for LCP)
- *  2. Gradient wash (darkens for legibility)
- *  3. Clip-path shape wipe (accent color sweep on slide change)
- *  4. Split-text reveal (headline, animated per-slide)
- *  5. Mouse-parallax UI chrome (scroll hint, badge)
- *
- * Motion: prefers-reduced-motion respected via Framer's useReducedMotion.
+ * Cinematic Hero — Relaunch Sprint 1
+ * PRD H1: "Spaces Designed to Work. Built to Last."
+ * Lead with office fit-out + corporate (P1) slides; 3D + turnkey + residential support.
+ * Carries ≥3 concrete numbers above the fold (98%, PKR 25k, 12 y).
  */
 
 type Slide = {
@@ -25,54 +20,49 @@ type Slide = {
   sub: string;
   cta: string;
   ctaHref: string;
+  secondary?: { label: string; href: string };
   imageSrc: string;
   accent: string;
 };
 
 const SLIDES: Slide[] = [
   {
-    eyebrow: "Commercial Interiors",
-    line1: "A boardroom",
-    line2: "that closes deals",
-    line3: "before the first slide.",
-    sub: "From 2,000 sqft startup floors to 40,000 sqft HQs. 98% handed over on the contract date, every finish signed off in 3D before a single nail is driven.",
-    cta: "See commercial work",
-    ctaHref: "/services/commercial",
+    eyebrow: "Design + Build Company",
+    line1: "Spaces",
+    line2: "designed to work.",
+    line3: "Built to last.",
+    sub:
+      "Woodex Interior brings design, workplace strategy and turnkey execution together to create high-performance corporate and commercial environments. 98% handed over on the contract date or we pay PKR 25,000 per week.",
+    cta: "Start your project",
+    ctaHref: "/consultation",
+    secondary: { label: "Explore our work", href: "/work" },
     imageSrc: "/images/hero-commercial.jpg",
-    accent: "#a6804a",
+    accent: "#A98252",
   },
   {
-    eyebrow: "Residential Design",
-    line1: "Your home.",
-    line2: "Exactly",
-    line3: "as you pictured it.",
-    sub: "Not an interpretation. Not close. Photoreal 3D walkthroughs you approve before anything is ordered — built that way for 12 years in Lahore.",
-    cta: "See residential work",
-    ctaHref: "/services/residential",
-    imageSrc: "/images/hero-residential.jpg",
-    accent: "#c85a3b",
+    eyebrow: "Office Fit-Out",
+    line1: "From shell",
+    line2: "to working floor—",
+    line3: "on the date we said.",
+    sub:
+      "Complete workplace transformation from planning to handover. One contract, one Gantt, Friday report at 4pm every week. Built that way for 12 years in Lahore.",
+    cta: "See office fit-out",
+    ctaHref: "/services/office-fit-out",
+    secondary: { label: "View workplaces", href: "/industries" },
+    imageSrc: "/images/hero-turnkey.jpg",
+    accent: "#b8956a",
   },
   {
     eyebrow: "3D Studio",
-    line1: "See it.",
-    line2: "Approve it.",
-    line3: "Get exactly that.",
-    sub: "Our in-house 3D studio produces renders so precise we contractually guarantee them against the finished build. We've honoured the guarantee twice in 12 years.",
-    cta: "Tour the 3D Studio",
+    line1: "See the room",
+    line2: "before it exists.",
+    sub:
+      "Photoreal 3D walkthroughs you approve before anything is ordered. So precise we contractually guarantee them against the finished build — invoked twice in 12 years.",
+    cta: "Open 3D Studio",
     ctaHref: "/3d-studio",
+    secondary: { label: "Book my 3D session", href: "/consultation" },
     imageSrc: "/images/hero-3d.jpg",
-    accent: "#d2bb8e",
-  },
-  {
-    eyebrow: "Turnkey Fit-Out",
-    line1: "Hand us the keys.",
-    line2: "Walk in to a",
-    line3: "finished space.",
-    sub: "Design, build, furniture, MEP, lighting — single contract, single Gantt, Friday report at 4pm every week. 98% on the contract date or we pay PKR 25,000/week.",
-    cta: "Explore turnkey",
-    ctaHref: "/services/turnkey",
-    imageSrc: "/images/hero-turnkey.jpg",
-    accent: "#bc9a63",
+    accent: "#C9BFB1",
   },
 ];
 
@@ -99,7 +89,7 @@ export default function CinematicHero() {
     const t = setInterval(() => {
       setIndex((i) => (i + 1) % SLIDES.length);
       setWipeKey((k) => k + 1);
-    }, 6500);
+    }, 7200);
     return () => clearInterval(t);
   }, []);
 
@@ -118,7 +108,7 @@ export default function CinematicHero() {
       onMouseMove={onMouseMove}
       className="relative h-[100svh] min-h-[640px] w-full overflow-hidden text-white noise"
     >
-      {/* Layer 1: Ken Burns backgrounds — use next/image for all slides, priority on first for LCP */}
+      {/* Background images */}
       {SLIDES.map((s, i) => {
         const isActive = i === index;
         return (
@@ -129,7 +119,7 @@ export default function CinematicHero() {
             animate={isActive
               ? { opacity: 1, scale: reducedMotion.current ? 1 : 1.06 }
               : { opacity: 0 }}
-            transition={{ duration: reducedMotion.current ? 0.4 : 1.8, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: reducedMotion.current ? 0.4 : 1.8, ease: [0.22, 1, 0.36, 1] }}
             aria-hidden={!isActive}
           >
             <Image
@@ -143,36 +133,32 @@ export default function CinematicHero() {
               quality={82}
               className="object-cover object-center"
             />
-            {/* Warm light-leaks overlay for texture */}
             <div
               className="absolute inset-0 opacity-40"
               style={{
                 backgroundImage:
-                  "radial-gradient(circle at 20% 30%, rgba(210,187,142,0.25), transparent 45%), radial-gradient(circle at 80% 70%, rgba(200,90,59,0.18), transparent 50%)",
+                  "radial-gradient(circle at 20% 30%, rgba(184,149,106,0.22), transparent 45%), radial-gradient(circle at 80% 70%, rgba(169,130,82,0.18), transparent 50%)",
               }}
             />
           </motion.div>
         );
       })}
 
-      {/* Mouse parallax accent */}
       <motion.div
         className="absolute inset-0 pointer-events-none"
         style={{ x: parallaxX, y: parallaxY }}
         aria-hidden
       >
         <div
-          className="absolute -right-24 top-1/4 w-[40vw] h-[40vw] max-w-[520px] max-h-[520px] rounded-full opacity-20 blur-3xl"
+          className="absolute -right-24 top-1/4 w-[40vw] h-[40vw] max-w-[520px] max-h-[520px] rounded-full opacity-25 blur-3xl"
           style={{ background: `radial-gradient(circle, ${slide.accent}, transparent 65%)` }}
         />
-        <div className="absolute left-10 bottom-20 w-24 h-24 border border-white/15 rotate-12" />
       </motion.div>
 
-      {/* Layer 2: Gradient wash for legibility */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/25 to-black/80" />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/40" />
+      {/* Gradient wash for legibility */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/30 to-black/85" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-transparent to-black/40" />
 
-      {/* Layer 3: Clip-path wipe accent on slide change */}
       {!reducedMotion.current && (
         <motion.div
           key={`wipe-${wipeKey}`}
@@ -180,20 +166,10 @@ export default function CinematicHero() {
           initial={{ clipPath: "inset(0 100% 0 0)" }}
           animate={{ clipPath: "inset(0 0 0 0)" }}
           transition={{ duration: 0.9, ease: [0.77, 0, 0.18, 1] }}
-          style={{ background: slide.accent, mixBlendMode: "overlay" as any, opacity: 0.4 }}
+          style={{ background: slide.accent, mixBlendMode: "overlay" as any, opacity: 0.35 }}
         />
       )}
 
-      {/* Vertical rules */}
-      <div className="absolute inset-0 container-x pointer-events-none hidden md:block">
-        <div className="h-full w-full grid grid-cols-6 gap-4 opacity-10">
-          {Array.from({ length: 6 }).map((_, i) => (
-            <div key={i} className="border-l border-white last:border-r" />
-          ))}
-        </div>
-      </div>
-
-      {/* Layer 4: Content */}
       <div className="relative z-10 container-x h-full flex flex-col justify-center pt-[var(--nav-h)] pb-24 sm:pb-28 md:pb-32">
         <div className="max-w-5xl">
           <AnimatePresence mode="wait">
@@ -211,18 +187,18 @@ export default function CinematicHero() {
               <motion.div
                 variants={{
                   hidden: { opacity: 0, y: 20 },
-                  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
+                  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
                   exit: { opacity: 0, transition: { duration: 0.2 } },
                 }}
-                className="inline-flex items-center gap-2 md:gap-3 mb-5 md:mb-8 text-[10px] md:text-xs uppercase tracking-[0.22em] md:tracking-[0.3em] text-white/70"
+                className="inline-flex items-center gap-2 md:gap-3 mb-5 md:mb-8 text-[10px] md:text-xs uppercase tracking-[0.22em] md:tracking-[0.3em] text-white/75"
               >
-                <span className="w-6 md:w-8 h-px bg-[var(--oak-400)]" />
+                <span className="w-6 md:w-8 h-px bg-[var(--brass)]" />
                 {slide.eyebrow}
               </motion.div>
 
-              <h1 className="font-display text-[var(--fs-display)] leading-[1.02] md:leading-[0.98] tracking-tight text-white mb-5 md:mb-8 max-w-[13ch] md:max-w-none">
+              <h1 className="font-display text-[var(--fs-display)] leading-[1.0] md:leading-[0.96] tracking-tight text-white mb-6 md:mb-8 max-w-[13ch] md:max-w-none">
                 <SplitLine>{slide.line1}</SplitLine>
-                <span className="block italic-serif text-[var(--oak-200)]">
+                <span className="block italic-serif text-[var(--wood)]">
                   <SplitLine delay={0.1}>{slide.line2}</SplitLine>
                 </span>
                 {slide.line3 && (
@@ -233,10 +209,10 @@ export default function CinematicHero() {
               <motion.p
                 variants={{
                   hidden: { opacity: 0, y: 20 },
-                  show: { opacity: 1, y: 0, transition: { duration: 0.7, delay: 0.5, ease: [0.16, 1, 0.3, 1] } },
+                  show: { opacity: 1, y: 0, transition: { duration: 0.7, delay: 0.5, ease: [0.22, 1, 0.36, 1] } },
                   exit: { opacity: 0 },
                 }}
-                className="text-base md:text-lg lg:text-xl text-white/80 max-w-xl leading-relaxed mb-8 md:mb-10 font-light"
+                className="text-base md:text-lg lg:text-xl text-white/80 max-w-2xl leading-[1.55] mb-8 md:mb-10 font-light"
               >
                 {slide.sub}
               </motion.p>
@@ -244,7 +220,7 @@ export default function CinematicHero() {
               <motion.div
                 variants={{
                   hidden: { opacity: 0, y: 20 },
-                  show: { opacity: 1, y: 0, transition: { duration: 0.7, delay: 0.7, ease: [0.16, 1, 0.3, 1] } },
+                  show: { opacity: 1, y: 0, transition: { duration: 0.7, delay: 0.7, ease: [0.22, 1, 0.36, 1] } },
                   exit: { opacity: 0 },
                 }}
                 className="flex flex-col sm:flex-row items-start sm:items-center gap-4 md:gap-6"
@@ -259,17 +235,36 @@ export default function CinematicHero() {
                 >
                   {slide.cta}
                 </Button>
-                <a
-                  href="/consultation"
-                  className="group inline-flex items-center gap-3 text-white/80 hover:text-white transition"
-                >
-                  <span className="w-11 h-11 md:w-12 md:h-12 rounded-full border border-white/30 flex items-center justify-center group-hover:bg-white/10 transition flex-shrink-0">
-                    <span className="w-2.5 md:w-3 h-2.5 md:h-3 rounded-full bg-[var(--oak-400)] animate-pulse" />
-                  </span>
-                  <span className="text-xs md:text-sm uppercase tracking-widest leading-tight">
-                    Free 45-min<br className="sm:hidden" /> site visit
-                  </span>
-                </a>
+                {slide.secondary && (
+                  <a
+                    href={slide.secondary.href}
+                    className="group inline-flex items-center gap-3 text-white/80 hover:text-white transition"
+                  >
+                    <span className="w-11 h-11 md:w-12 md:h-12 rounded-full border border-white/30 flex items-center justify-center group-hover:bg-white/10 transition flex-shrink-0">
+                      <span className="block w-0 group-hover:w-3 h-px bg-white/70 transition-all duration-300 origin-left" />
+                      <span className="arrow ml-1">→</span>
+                    </span>
+                    <span className="text-xs md:text-sm uppercase tracking-widest leading-tight">
+                      {slide.secondary.label}
+                    </span>
+                  </a>
+                )}
+              </motion.div>
+
+              {/* Above-the-fold proof strip */}
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  show: { opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.95, ease: [0.22, 1, 0.36, 1] } },
+                  exit: { opacity: 0 },
+                }}
+                className="mt-10 md:mt-14 flex flex-wrap items-center gap-x-6 gap-y-3 text-[10px] md:text-xs uppercase tracking-[0.22em] text-white/60"
+              >
+                <ProofStat num="98%" label="on contract date" />
+                <span className="hidden sm:block w-px h-4 bg-white/20" />
+                <ProofStat num="PKR 25k" label="/ week delay credit" />
+                <span className="hidden sm:block w-px h-4 bg-white/20" />
+                <ProofStat num="12 yrs" label="building in Lahore" />
               </motion.div>
             </motion.div>
           </AnimatePresence>
@@ -296,7 +291,7 @@ export default function CinematicHero() {
               >
                 <span className="absolute inset-0 bg-white/20" />
                 <span
-                  className="absolute inset-y-0 left-0 bg-[var(--oak-400)] transition-all duration-500"
+                  className="absolute inset-y-0 left-0 bg-[var(--brass)] transition-all duration-500"
                   style={{
                     width: i === index ? "100%" : i < index ? "100%" : "0%",
                     opacity: i <= index ? 1 : 0,
@@ -307,7 +302,7 @@ export default function CinematicHero() {
                     className="absolute inset-y-0 left-0 bg-white"
                     initial={{ width: "0%" }}
                     animate={{ width: "100%" }}
-                    transition={{ duration: 6.5, ease: "linear" }}
+                    transition={{ duration: 7.2, ease: "linear" }}
                     key={`bar-${wipeKey}`}
                   />
                 )}
@@ -329,7 +324,7 @@ export default function CinematicHero() {
             className="block w-px h-10 bg-white/40 relative overflow-hidden"
           >
             <motion.span
-              className="absolute top-0 left-0 w-full h-4 bg-[var(--oak-400)]"
+              className="absolute top-0 left-0 w-full h-4 bg-[var(--brass)]"
               animate={{ y: [0, 24, 0] }}
               transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
             />
@@ -360,7 +355,7 @@ function SplitLine({ children, delay = 0 }: { children: React.ReactNode; delay?:
               show: {
                 y: 0,
                 opacity: 1,
-                transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] },
+                transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] },
               },
             }}
           >
@@ -369,5 +364,14 @@ function SplitLine({ children, delay = 0 }: { children: React.ReactNode; delay?:
         ))}
       </motion.span>
     </span>
+  );
+}
+
+function ProofStat({ num, label }: { num: string; label: string }) {
+  return (
+    <div className="flex items-baseline gap-2">
+      <span className="text-white font-semibold text-sm md:text-base tabular-nums">{num}</span>
+      <span className="text-white/50 normal-case tracking-normal text-[10px] md:text-xs">{label}</span>
+    </div>
   );
 }

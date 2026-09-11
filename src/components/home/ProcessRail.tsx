@@ -7,48 +7,42 @@ import { motion, useScroll, useTransform } from "framer-motion";
  * Process Rail (flagship)
  * Horizontal scroll rail that reveals the 6-step process as you scroll down.
  */
+/** PRD §8.7: Understand → Plan → Design → Build → Deliver */
 const STEPS = [
   {
     n: "01",
-    label: "Brief & Site Visit",
-    days: "Day 0-3",
-    title: "We come to you.",
-    body: "A 45-minute walkthrough of the space. We take measurements, photos, and listen. No pitch. No upsell. Just your problem.",
+    label: "Understand",
+    days: "Day 0–3",
+    title: "Requirements, goals, users, site, budget.",
+    body: "A 45-minute walkthrough. We take measurements, photos and listen — goals, team size, workflow, brand, constraints. No pitch. No upsell.",
   },
   {
     n: "02",
-    label: "Concept & 3D",
-    days: "Day 4-14",
-    title: "You approve a walkthrough.",
-    body: "Mood boards, 2D layouts, and a photoreal 3D render you can walk through. We iterate until you say 'that's it.'",
+    label: "Plan",
+    days: "Day 4–10",
+    title: "Space planning, workplace strategy, project direction.",
+    body: "Capacity modelling, circulation, adjacencies and a strategic brief. We confirm the right problem before any design work begins.",
   },
   {
     n: "03",
-    label: "Scope & Price",
-    days: "Day 15-18",
-    title: "Fixed price. Fixed date.",
-    body: "An itemised quote with materials, quantities, and a Gantt chart with the handover date in bold. No asterisks.",
+    label: "Design",
+    days: "Week 2–4",
+    title: "Concept, materials, 3D, technical development.",
+    body: "Mood boards, 2D layouts and a photoreal 3D walkthrough you approve. Drawings, material schedules and BOQ follow for sign-off.",
   },
   {
     n: "04",
     label: "Build",
-    days: "Week 3 — End",
-    title: "The Friday Report, every Friday at 4pm.",
-    body: "One-page progress report: shipped this week, shipping next, photos, budget spent, risks. You always know.",
+    days: "Week 5 →",
+    title: "Fit-out, procurement, coordination, execution.",
+    body: "Joinery built off-site in our workshop during civil works. Friday Report at 4pm every week: shipped this week, next, photos, risks.",
   },
   {
     n: "05",
-    label: "3D Walk-Through",
-    days: "Pre-handover",
-    title: "Does it match the render?",
-    body: "We walk the finished space side-by-side with the approved 3D. If anything doesn't match, we fix it before you sign off.",
-  },
-  {
-    n: "06",
-    label: "Handover & Year 1",
-    days: "Day of + 365",
-    title: "Keys, manual, warranty.",
-    body: "Snag list resolved in 14 days. 12-month warranty on every finish. A 30-day check-in call. We don't vanish.",
+    label: "Deliver",
+    days: "Handover + Year 1",
+    title: "Quality control, completion, handover.",
+    body: "We walk the finished space against the approved 3D. Snags resolved in 14 days. 2-year joinery warranty. 30-day check-in call. We don't vanish.",
   },
 ];
 
@@ -62,14 +56,19 @@ export default function ProcessRail() {
     <section ref={ref} className="relative bg-[var(--bg)] max-md:hidden" style={{ height: `${STEPS.length * 90}vh` }}>
       <div className="sticky top-0 h-screen overflow-hidden flex flex-col py-[var(--nav-h)]">
         {/* Heading */}
-        <div className="container-x pt-10 pb-8">
-          <div className="kicker text-[var(--fg-muted)] mb-4">
-            The Process
+        <div className="container-x pt-10 pb-6 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+          <div>
+            <div className="kicker text-[var(--fg-muted)] mb-4">
+              The Process
+            </div>
+            <h2 className="font-display text-[var(--fs-h2)] leading-[1.05] max-w-2xl text-balance">
+              From first conversation
+              <span className="block italic-serif text-[var(--oak-600)]">to final handover.</span>
+            </h2>
           </div>
-          <h2 className="font-display text-[var(--fs-h2)] leading-[1.05] max-w-2xl text-balance">
-            From first call to handover —<br />
-            <span className="italic-serif text-[var(--oak-600)]">six steps, one timeline.</span>
-          </h2>
+          <a href="/consultation" className="group inline-flex items-center gap-3 text-sm uppercase tracking-widest font-medium text-[var(--fg)] hover:text-[var(--oak-600)] transition-colors shrink-0 pb-2">
+            How we work <span className="arrow">→</span>
+          </a>
         </div>
 
         {/* Horizontal rail */}
@@ -109,8 +108,8 @@ export function ProcessRailMobile() {
             The Process
           </div>
           <h2 className="font-display text-[var(--fs-h2)] leading-[1.05] text-balance">
-            From first call to handover —<br />
-            <span className="italic-serif text-[var(--oak-600)]">six steps, one timeline.</span>
+            From first conversation
+            <span className="block italic-serif text-[var(--oak-600)]">to final handover.</span>
           </h2>
         </div>
         <div className="relative">
