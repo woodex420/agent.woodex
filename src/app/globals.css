@@ -1,61 +1,79 @@
 @import "tailwindcss";
 
 /* ============================================
-   WOODEX INTERIOR — DESIGN TOKENS v3.0
-   Light + Dark themes, fluid type, zero hardcoded values
+   WOODEX INTERIOR — DESIGN TOKENS v4.0 (Relaunch Sprint 0)
+   Walnut / Brass / Ivory · Plus Jakarta Sans · Premium architectural
+   Source palette: 90-day Master Plan (walnut/charcoal/ivory/stone/brass/sage)
+   + DESIGN.md (ink/muted/wood). Legacy --oak-* names kept for component compat.
    ============================================ */
 
 :root {
-  /* Brand palette — warm oak + deep graphite, inspired by premium interior studios */
-  --oak-50:  #faf7f2;
-  --oak-100: #f2ebdd;
-  --oak-200: #e5d7ba;
-  --oak-300: #d2bb8e;
-  --oak-400: #bc9a63;
-  --oak-500: #a6804a;     /* primary warm */
-  --oak-600: #8a6639;
-  --oak-700: #6d4f2d;
-  --oak-800: #4c3821;
-  --oak-900: #2d2216;
+  /* ---- Relaunch brand palette (canonical names) ---- */
+  --ivory:       #F3EFE7;  /* Warm ivory — page base */
+  --ivory-2:     #E8DFD2;  /* ivory -1 */
+  --stone:       #C9BFB1;  /* Natural stone */
+  --wood:        #b8956a;  /* Wood mid (from DESIGN.md) */
+  --brass:       #A98252;  /* Muted brass — primary warm */
+  --brass-deep:  #86663f;
+  --brass-dark:  #624a2d;
+  --walnut:      #443229;  /* Deep walnut */
+  --walnut-deep: #2b1f19;
+  --charcoal:    #1E1E1C;  /* Charcoal — near-black */
+  --charcoal-2:  #12151c;  /* Ink (from DESIGN.md) */
+  --muted:       #6a6560;  /* Muted text */
+  --sage:        #687064;  /* Sage — secondary accent */
 
-  --graphite-50:  #f6f6f6;
-  --graphite-100: #e7e7e7;
-  --graphite-200: #d1d1d1;
-  --graphite-300: #b0b0b0;
-  --graphite-400: #888888;
-  --graphite-500: #6d6d6d;
-  --graphite-600: #545454;
-  --graphite-700: #3f3f3f;
-  --graphite-800: #2a2a2a;
-  --graphite-900: #171717;  /* near-black */
-  --graphite-950: #0b0b0b;
+  /* ---- Legacy aliases (so existing bg-[var(--oak-500)] etc keep working) ---- */
+  --oak-50:  var(--ivory);
+  --oak-100: var(--ivory-2);
+  --oak-200: var(--stone);
+  --oak-300: var(--wood);
+  --oak-400: var(--wood);
+  --oak-500: var(--brass);     /* primary warm */
+  --oak-600: var(--brass-deep);
+  --oak-700: var(--brass-dark);
+  --oak-800: var(--walnut);
+  --oak-900: var(--walnut-deep);
 
-  --accent:       #c85a3b;  /* terracotta accent for CTA warmth */
-  --accent-hover: #a8482d;
-  --accent-on-dark: #e8764f; /* lighter terracotta that hits 4.5:1 on graphite-900 */
-  --oak-400-on-dark: #d4b07a; /* warmer light-oak for dark mode links */
-  --success:      #4a7c59;
-  --warning:      #d4a03c;
-  --error:        #b33a3a;
+  --graphite-50:  #f6f5f3;
+  --graphite-100: #e8e4dc;
+  --graphite-200: #d1cbc0;
+  --graphite-300: #a8a196;
+  --graphite-400: #857e73;
+  --graphite-500: var(--muted);
+  --graphite-600: #534e48;
+  --graphite-700: #3f3a35;
+  --graphite-800: #2b2723;
+  --graphite-900: var(--charcoal);   /* near-black */
+  --graphite-950: #0f0d0b;
+
+  /* Accent is brass (one warm metal, no competing terracotta per DESIGN.md "no extra accent") */
+  --accent:       var(--brass);
+  --accent-hover: var(--brass-deep);
+  --accent-on-dark: #d4af7a;  /* light brass hits 4.5:1 on charcoal */
+  --oak-400-on-dark: #d4af7a;
+  --success:      var(--sage);
+  --warning:      #b88838;
+  --error:        #a83c3c;
 
   /* Semantic — Light theme (default) */
-  --bg:           var(--oak-50);
+  --bg:           var(--ivory);
   --bg-elevated:  #ffffff;
-  --bg-subtle:    var(--oak-100);
-  --bg-invert:    var(--graphite-900);
-  --fg:           var(--graphite-900);
-  --fg-muted:     var(--graphite-600);
+  --bg-subtle:    var(--ivory-2);
+  --bg-invert:    var(--charcoal);
+  --fg:           var(--charcoal-2);
+  --fg-muted:     var(--muted);
   --fg-subtle:    var(--graphite-400);
-  --fg-invert:    var(--oak-50);
-  --border:       rgba(23,23,23,0.10);
-  --border-strong:rgba(23,23,23,0.20);
-  --ring:         var(--oak-500);
+  --fg-invert:    var(--ivory);
+  --border:       rgba(30,30,28,0.10);
+  --border-strong:rgba(30,30,28,0.22);
+  --ring:         var(--brass);
 
   /* Surfaces */
   --surface-1:    #ffffff;
-  --surface-2:    var(--oak-50);
-  --surface-3:    var(--graphite-900);
-  --overlay:      rgba(11,11,11,0.60);
+  --surface-2:    var(--ivory);
+  --surface-3:    var(--charcoal);
+  --overlay:      rgba(15,13,11,0.60);
 
   /* Typography scale — fluid via clamp */
   --fs-display:   clamp(2.3rem, 6vw + 1rem, 6.5rem);
@@ -84,14 +102,15 @@
   --sp-32: 8rem;
   --sp-section: clamp(4rem, 10vw, 8rem);
 
-  /* Radii */
-  --r-sm:   0.25rem;
-  --r-md:   0.5rem;
-  --r-lg:   1rem;
-  --r-xl:   1.5rem;
-  --r-full: 9999px;
+  /* Radii — DESIGN.md scale: 24 / 16 / 12 / pill */
+  --r-sm:   0.75rem;   /* 12px — inputs */
+  --r-md:   1rem;      /* 16px — inner */
+  --r-lg:   1.5rem;    /* 24px — cards */
+  --r-xl:   1.5rem;    /* alias */
+  --r-full: 9999px;    /* pill */
 
-  /* Motion DNA — single easing/duration vocabulary */
+  /* Motion DNA — Linoxa primary ease per DESIGN.md */
+  --ease-linoxa:    cubic-bezier(0.22, 1, 0.36, 1);
   --ease-out-expo:  cubic-bezier(0.16, 1, 0.3, 1);
   --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
   --ease-in-out:    cubic-bezier(0.65, 0, 0.35, 1);
@@ -180,13 +199,30 @@
   --color-warning: var(--warning);
   --color-error: var(--error);
 
-  --font-display: "Fraunces", "Playfair Display", Georgia, serif;
-  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  /* Relaunch palette aliases */
+  --color-ivory: var(--ivory);
+  --color-ivory-2: var(--ivory-2);
+  --color-stone: var(--stone);
+  --color-wood: var(--wood);
+  --color-brass: var(--brass);
+  --color-brass-deep: var(--brass-deep);
+  --color-brass-dark: var(--brass-dark);
+  --color-walnut: var(--walnut);
+  --color-walnut-deep: var(--walnut-deep);
+  --color-charcoal: var(--charcoal);
+  --color-charcoal-2: var(--charcoal-2);
+  --color-muted: var(--muted);
+  --color-sage: var(--sage);
+
+  /* Plus Jakarta Sans single family (DESIGN.md: no second typeface) */
+  --font-display: var(--font-geist-sans), "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-sans: var(--font-geist-sans), "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-mono), "JetBrains Mono", ui-monospace, monospace;
 
   --ease-out-expo: var(--ease-out-expo);
   --ease-out-quart: var(--ease-out-quart);
   --ease-in-out: var(--ease-in-out);
+  --ease-linoxa: var(--ease-linoxa);
 }
 
 /* ============================================
@@ -272,15 +308,14 @@ img, svg, video { display: block; max-width: 100%; }
 h1, h2, h3, h4, h5 {
   font-family: var(--font-display);
   font-weight: 500;
-  line-height: 1.06;
-  letter-spacing: -0.015em;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
   margin: 0;
   text-wrap: balance;
-  font-variation-settings: "opsz" 144, "SOFT" 30;
 }
-h1 { font-size: var(--fs-h1); line-height: 1.03; letter-spacing: -0.02em; }
-h2 { font-size: var(--fs-h2); line-height: 1.06; }
-h3 { font-size: var(--fs-h3); line-height: 1.15; letter-spacing: -0.01em; }
+h1 { font-size: var(--fs-h1); font-weight: 600; line-height: 1.03; letter-spacing: -0.03em; }
+h2 { font-size: var(--fs-h2); font-weight: 600; line-height: 1.06; }
+h3 { font-size: var(--fs-h3); font-weight: 600; line-height: 1.15; letter-spacing: -0.015em; }
 
 p { margin: 0 0 var(--sp-4); text-wrap: pretty; }
 
@@ -295,13 +330,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 :focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; border-radius: var(--r-sm); }
 
-/* Display type treatment */
+/* Display type treatment (PJS single family — italic stays) */
 .font-display { font-family: var(--font-display); }
 .italic-serif {
   font-family: var(--font-display);
   font-style: italic;
   font-weight: 400;
-  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
 }
 
 /* Kicker / eyebrow — standardize across all sections */
@@ -331,6 +365,14 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 /* Utilities */
 .container-x { width: var(--container); margin-inline: auto; padding-inline: var(--gutter); }
 .section-pad { padding-block: var(--sp-section); }
+
+/* Inner hero — DESIGN.md: 520px tall for every non-cine page (range 450–600).
+   Apply to inner-page hero sections; cine hero on Home + 3D Studio stays full-viewport. */
+.inner-hero {
+  min-height: clamp(440px, 58vh, 560px);
+  padding-top: calc(var(--nav-h) + 2rem);
+  position: relative;
+}
 
 .kbd {
   font-family: var(--font-mono);

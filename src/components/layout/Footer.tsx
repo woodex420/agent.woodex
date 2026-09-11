@@ -33,7 +33,7 @@ export default function Footer() {
                 href="/consultation"
                 className="w-full sm:w-auto justify-center"
               >
-                Book my consultation
+                Start your project
               </Button>
               <a
                 href={`https://wa.me/${SITE.whatsapp}`}
@@ -80,11 +80,11 @@ export default function Footer() {
           <div>
             <div className="text-xs uppercase tracking-[0.2em] text-white/40 mb-4">Studio</div>
             <ul className="space-y-2 text-sm text-white/80">
+              <li><Link href="/work" className="hover:text-[var(--oak-300)] transition-colors">Work</Link></li>
+              <li><Link href="/industries" className="hover:text-[var(--oak-300)] transition-colors">Industries</Link></li>
               <li><Link href="/about" className="hover:text-[var(--oak-300)] transition-colors">About</Link></li>
-              <li><Link href="/portfolio" className="hover:text-[var(--oak-300)] transition-colors">Portfolio</Link></li>
-              <li><Link href="/blog" className="hover:text-[var(--oak-300)] transition-colors">Journal</Link></li>
-              <li><Link href="/contact" className="hover:text-[var(--oak-300)] transition-colors">Contact</Link></li>
-              <li><Link href="/consultation" className="hover:text-[var(--oak-300)] transition-colors">Consultation</Link></li>
+              <li><Link href="/insights" className="hover:text-[var(--oak-300)] transition-colors">Insights</Link></li>
+              <li><Link href="/3d-studio" className="hover:text-[var(--oak-300)] transition-colors">Open 3D Studio</Link></li>
               <li><Link href="/locations" className="hover:text-[var(--oak-300)] transition-colors">Locations</Link></li>
             </ul>
           </div>

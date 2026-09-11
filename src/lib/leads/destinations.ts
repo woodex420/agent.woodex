@@ -58,7 +58,7 @@ export async function sendNotificationEmail(lead: LeadRecord): Promise<void> {
   if (!key || !to) return;
   const subject = `New lead: ${lead.space ?? "consultation"} — ${lead.name}`;
   const html = `
-    <h2>New lead from woodex.studio</h2>
+    <h2>New lead from woodex.com.pk</h2>
     <p><strong>Name:</strong> ${escapeHtml(lead.name)}</p>
     <p><strong>Phone:</strong> ${escapeHtml(lead.phone)}</p>
     ${lead.email ? `<p><strong>Email:</strong> ${escapeHtml(lead.email)}</p>` : ""}
@@ -76,7 +76,7 @@ export async function sendNotificationEmail(lead: LeadRecord): Promise<void> {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: "Woodex Leads <leads@woodex.studio>",
+        from: "Woodex Leads <woodexinterior.pk@gmail.com>",
         to: [to],
         subject,
         html,

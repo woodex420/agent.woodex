@@ -11,37 +11,40 @@ import { SITE } from "@/lib/config";
 type NavLink = { label: string; href: string; order?: number };
 type MegaColumn = { heading: string; items: { label: string; href: string; sub?: string }[] };
 
+/**
+ * Relaunch nav — PRD primary nav: Work · Services · Industries · About · Insights + Start Your Project.
+ * 3D Studio sits as a top-level utility link (Open 3D Studio) per 90-day non-negotiable #4.
+ */
 const STATIC_NAV_LINKS: NavLink[] = [
-  { label: "Services", href: "/services", order: 10 },
-  { label: "3D Studio", href: "/3d-studio", order: 20 },
-  { label: "Portfolio", href: "/portfolio", order: 30 },
+  { label: "Work", href: "/portfolio", order: 10 },        // /work hub rename pending; /portfolio is the current alias
+  { label: "Services", href: "/services", order: 20 },
+  { label: "Industries", href: "/industries", order: 30 }, // hub being built in Sprint 3
   { label: "About", href: "/about", order: 40 },
-  { label: "Journal", href: "/blog", order: 50 },
-  { label: "Contact", href: "/contact", order: 60 },
+  { label: "Insights", href: "/blog", order: 50 },          // /insights rename pending
 ];
 
-/** Mega menu: two-column panel with services grouped into Practices + Specialties */
+/** Services mega menu — two-column: Capabilities (P1 first) + Specialist */
 const MEGA_COLUMNS: MegaColumn[] = [
   {
-    heading: "Practices",
+    heading: "Capabilities",
     items: [
-      { label: "Commercial Interiors", href: "/services/commercial", sub: "Offices & floors" },
-      { label: "Residential Interiors", href: "/services/residential", sub: "Homes & villas" },
+      { label: "Office Fit-Out", href: "/services/office-fit-out", sub: "Shell to working floor" },
       { label: "Corporate Interiors", href: "/services/corporate", sub: "HQs & multi-site" },
+      { label: "Commercial Interiors", href: "/services/commercial", sub: "Offices & floors" },
+      { label: "Turnkey Design + Build", href: "/services/turnkey", sub: "Keys in. Keys out." },
       { label: "Retail & F&B", href: "/services/retail", sub: "Shops, cafés, restaurants" },
-      { label: "Turnkey Design+Build", href: "/services/turnkey", sub: "Keys in. Keys out." },
-      { label: "Renovation", href: "/services/renovation", sub: "Old spaces, made new" },
+      { label: "Residential Interiors", href: "/services/residential", sub: "Selected homes & villas" },
     ],
   },
   {
-    heading: "Specialties",
+    heading: "Specialist",
     items: [
-      { label: "Office Fit-Out (CAT B)", href: "/services/office-fit-out", sub: "Shell to working floor" },
-      { label: "Office Furniture", href: "/services/office-furniture", sub: "Workstations & chairs" },
-      { label: "Custom Furniture", href: "/services/custom-furniture", sub: "Workshop-built pieces" },
-      { label: "Brand Shops", href: "/services/brand-shop", sub: "Flagship showrooms" },
-      { label: "Residential Fit-Out", href: "/services/residential-fit-out", sub: "Apartments, ready to live in" },
-      { label: "3D Design Only", href: "/services/3d-design-planning", sub: "Renders & drawings" },
+      { label: "Workplace Strategy", href: "/services/office-fit-out", sub: "Space planning & brief" },
+      { label: "3D Visualisation", href: "/services/3d-design-planning", sub: "See the room before it exists" },
+      { label: "Open 3D Studio", href: "/3d-studio", sub: "Live, interactive design sessions" },
+      { label: "Custom Furniture", href: "/services/custom-furniture", sub: "Workshop-built joinery" },
+      { label: "Office Furniture", href: "/services/office-furniture", sub: "Workstations & seating" },
+      { label: "Renovation", href: "/services/renovation", sub: "Old spaces, made new" },
     ],
   },
 ];
@@ -253,7 +256,7 @@ export default function Nav({ extraLinks = [] }: { extraLinks?: NavLink[] }) {
               magnetic
               href="/consultation"
             >
-              Book consultation
+              Start your project
             </Button>
           </div>
 

@@ -47,7 +47,7 @@ export default function NotFound() {
 
             <div className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-3">
               <Button href="/" variant="liquid" magnetic>Back to home</Button>
-              <Link href={`tel:+923000000000`} className="text-sm uppercase tracking-widest font-medium hover:text-[var(--oak-600)]">
+              <Link href={`tel:+923224000768`} className="text-sm uppercase tracking-widest font-medium hover:text-[var(--oak-600)]">
                 Call directly →
               </Link>
             </div>
@@ -63,7 +63,7 @@ export default function NotFound() {
                 (Mon–Sat, 10am–7).
               </p>
               <Link
-                href="https://wa.me/923000000000"
+                href="https://wa.me/923224000768"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 font-medium tracking-wide uppercase px-6 py-3 text-sm rounded-full border border-[var(--fg)] hover:bg-[var(--oak-500)] hover:text-white hover:border-[var(--oak-500)] transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--oak-500)]"

@@ -35,12 +35,12 @@ export default async function ArticlePage({ params }: { params: Promise<{ catego
     "@type": "Article",
     headline: post.title,
     description: post.deck,
-    image: [`https://woodex.studio${post.image}`],
+    image: [`https://woodex.com.pk${post.image}`],
     datePublished: post.date,
     dateModified: post.date,
     author: { "@type": "Person", name: post.author.name, jobTitle: post.author.role },
-    publisher: { "@type": "Organization", name: "Woodex Interior", url: "https://woodex.studio" },
-    mainEntityOfPage: { "@type": "WebPage", "@id": `https://woodex.studio/blog/${post.category}/${post.slug}` },
+    publisher: { "@type": "Organization", name: "Woodex Interior", url: "https://woodex.com.pk" },
+    mainEntityOfPage: { "@type": "WebPage", "@id": `https://woodex.com.pk/blog/${post.category}/${post.slug}` },
     keywords: CATEGORY_META[post.category as PostCategory].label,
     articleSection: CATEGORY_META[post.category as PostCategory].label,
   };
@@ -48,9 +48,9 @@ export default async function ArticlePage({ params }: { params: Promise<{ catego
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://woodex.studio/" },
-      { "@type": "ListItem", position: 2, name: "Journal", item: "https://woodex.studio/blog" },
-      { "@type": "ListItem", position: 3, name: CATEGORY_META[post.category as PostCategory].label, item: `https://woodex.studio/blog/${post.category}` },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://woodex.com.pk/" },
+      { "@type": "ListItem", position: 2, name: "Journal", item: "https://woodex.com.pk/blog" },
+      { "@type": "ListItem", position: 3, name: CATEGORY_META[post.category as PostCategory].label, item: `https://woodex.com.pk/blog/${post.category}` },
       { "@type": "ListItem", position: 4, name: post.title },
     ],
   };
@@ -136,7 +136,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ catego
               </p>
             </div>
             <div className="lg:col-span-5 flex lg:justify-end gap-3 flex-wrap">
-              <Button href="https://wa.me/923000000000" variant="dark" size="lg" magnetic>Message on WhatsApp</Button>
+              <Button href="https://wa.me/923224000768" variant="dark" size="lg" magnetic>Message on WhatsApp</Button>
               <Button href="/consultation" variant="ghost" size="lg" className="text-white hover:text-[var(--oak-300)]">Book a walkthrough</Button>
             </div>
           </div>

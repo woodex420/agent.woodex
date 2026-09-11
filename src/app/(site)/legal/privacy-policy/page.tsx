@@ -60,7 +60,7 @@ export default function PrivacyPage() {
         <p>
           You can ask for a copy of every piece of data we hold on you, ask us to correct it,
           or ask us to delete it (subject to the 7-year retention above). Email
-          hello@woodex.studio with the subject line "Data request" and we will respond within
+          woodexinterior.pk@gmail.com with the subject line "Data request" and we will respond within
           7 working days. There is no form and no fee.
         </p>
       </Section>
@@ -75,7 +75,7 @@ export default function PrivacyPage() {
 
       <Section h="Questions?">
         <p>
-          Email hello@woodex.studio, WhatsApp us on the number at the top of every page,
+          Email woodexinterior.pk@gmail.com, WhatsApp us on the number at the top of every page,
           or walk in to the Sundar Road workshop during business hours. We don't have a DPO
           — the founder is responsible for data, same as he is for the build.
         </p>

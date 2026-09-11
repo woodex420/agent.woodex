@@ -104,7 +104,7 @@ export async function woodexOg(
             }}
           >
             <div style={{ width: 28, height: 2, background: "#c9a26a" }} />
-            woodex.studio
+            woodex.com.pk
           </div>
         </div>
       </div>

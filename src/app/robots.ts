@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/studio", "/api/"],
       },
     ],
-    sitemap: "https://woodex.studio/sitemap.xml",
-    host: "https://woodex.studio",
+    sitemap: "https://woodex.com.pk/sitemap.xml",
+    host: "https://woodex.com.pk",
   };
 }

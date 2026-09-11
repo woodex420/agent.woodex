@@ -58,7 +58,7 @@ export default async function ServicePage({
     "@context": "https://schema.org",
     "@type": "Service",
     serviceType: svc.eyebrow,
-    provider: { "@type": "Organization", name: "Woodex Interior", url: "https://woodex.studio" },
+    provider: { "@type": "Organization", name: "Woodex Interior", url: "https://woodex.com.pk" },
     areaServed: { "@type": "City", name: "Lahore" },
     description: svc.heroSub,
     offers: { "@type": "Offer", priceSpecification: { "@type": "PriceSpecification", price: svc.costBand.range, priceCurrency: "PKR" } },
@@ -70,8 +70,8 @@ export default async function ServicePage({
   };
   const breadcrumbSchema = {
     "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://woodex.studio/" },
-      { "@type": "ListItem", position: 2, name: "Services", item: "https://woodex.studio/services" },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://woodex.com.pk/" },
+      { "@type": "ListItem", position: 2, name: "Services", item: "https://woodex.com.pk/services" },
       { "@type": "ListItem", position: 3, name: svc.eyebrow },
     ],
   };

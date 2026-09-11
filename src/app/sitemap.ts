@@ -5,7 +5,7 @@ import { POSTS, CATEGORY_META } from "@/lib/content/posts";
 import { LOCATIONS } from "@/lib/content/locations";
 import { getAllPages } from "@/lib/sanity/page-helpers";
 
-const BASE = "https://woodex.studio";
+const BASE = "https://woodex.com.pk";
 const now = new Date();
 
 const staticPaths: MetadataRoute.Sitemap = [

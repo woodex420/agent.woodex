@@ -2,7 +2,7 @@
  * Phase 6 — Audit log webhook endpoint.
  *
  * Sanity webhook configuration (Project Settings → API → Webhooks):
- *   - URL: https://woodex.studio/api/audit
+ *   - URL: https://woodex.com.pk/api/audit
  *   - Trigger on: create, update, delete (all datasets)
  *   - Secret: same value as SANITY_REVALIDATE_SECRET (sent in X-Sanity-Webhook-Secret)
  *   - Projection: `{"_id":_id,"_type":_type,"_rev":_rev,"_createdAt":_createdAt,"_updatedAt":_updatedAt}`

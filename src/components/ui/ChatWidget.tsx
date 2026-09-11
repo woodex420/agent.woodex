@@ -1,136 +1,50 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { SITE } from "@/lib/config";
 
 /**
- * Floating Chat Widget
- * Capture-first: opens options for WhatsApp, call, or consultation form.
- * Appears after 8s or scroll past 600px.
- * Respects session: if user already booked (woodex_booked) it hides for this session.
- * User can dismiss; stays dismissed for the page session.
+ * WhatsApp Float — Relaunch Sprint 0 per DESIGN.md + 90-day "Non-Negotiable #2":
+ * Floating WhatsApp button ALWAYS visible (no delay, no dismiss).
+ * Pre-filled message per global microcopy.
+ * Mobile bar has its own WhatsApp entry (MobileStickyCTA) — this FAB sits above it on mobile.
  */
 export default function ChatWidget() {
-  const [open, setOpen] = useState(false);
-  const [visible, setVisible] = useState(false);
-  const [dismissed, setDismissed] = useState(false);
-  const panelRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    // If they just converted (thank-you page set this flag), don't show
-    try {
-      if (sessionStorage.getItem("woodex_booked") === "1") return;
-    } catch {}
-
-    const t = setTimeout(() => setVisible(true), 8000);
-    const onScroll = () => {
-      if (window.scrollY > 600) setVisible(true);
-    };
-    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setOpen(false); };
-    const onClick = (e: MouseEvent) => {
-      if (open && panelRef.current && !panelRef.current.contains(e.target as Node)) setOpen(false);
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("keydown", onKey);
-    document.addEventListener("mousedown", onClick);
-    return () => {
-      clearTimeout(t);
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("keydown", onKey);
-      document.removeEventListener("mousedown", onClick);
-    };
-  }, [open]);
-
-  function dismiss(e: React.MouseEvent) {
-    e.stopPropagation();
-    setDismissed(true);
-    setOpen(false);
-  }
-
-  const show = visible && !dismissed;
+  const msg = encodeURIComponent(
+    "Hi Woodex! I'm interested in a project. My name is ___ and my project is in ___. I found you on your website."
+  );
+  const href = `https://wa.me/${SITE.whatsapp}?text=${msg}`;
 
   return (
-    <AnimatePresence>
-      {show && (
-        <motion.div
-          initial={{ opacity: 0, y: 30, scale: 0.9 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: 20, scale: 0.9 }}
-          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50"
-        >
-          <AnimatePresence>
-            {open && (
-              <motion.div
-                initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                ref={panelRef}
-              className="absolute bottom-16 md:bottom-20 right-0 w-72 max-w-[calc(100vw-2rem)] bg-[var(--surface-1)] border border-[var(--border)] rounded-sm shadow-[var(--shadow-lg)] overflow-hidden"
-              >
-                <div className="p-5 bg-[var(--graphite-900)] text-white relative">
-                  <button
-                    onClick={dismiss}
-                    aria-label="Dismiss"
-                    className="absolute top-3 right-3 text-white/60 hover:text-white w-6 h-6 flex items-center justify-center"
-                  >
-                    ×
-                  </button>
-                  <div className="text-xs uppercase tracking-widest text-[var(--oak-300)] mb-1 pr-6">Talk to a human</div>
-                  <div className="font-display text-xl leading-tight">
-                    Get a reply<br />
-                    <span className="italic-serif text-[var(--oak-300)]">in under 15 minutes.</span>
-                  </div>
-                </div>
-                <div className="p-2">
-                  <a href={`https://wa.me/${SITE.whatsapp}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 rounded-sm hover:bg-[var(--bg-subtle)] transition">
-                    <span className="w-10 h-10 rounded-full bg-[#25D366] text-white flex items-center justify-center flex-shrink-0">
-                      <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current"><path d="M.057 24l1.687-6.163a11.87 11.87 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-                    </span>
-                    <div>
-                      <div className="font-medium">WhatsApp</div>
-                      <div className="text-xs text-[var(--fg-subtle)]">Typical reply &lt; 15 min</div>
-                    </div>
-                  </a>
-                  <a href={`tel:${SITE.phoneTel}`} className="flex items-center gap-3 p-3 rounded-sm hover:bg-[var(--bg-subtle)] transition">
-                    <span className="w-10 h-10 rounded-full bg-[var(--oak-500)] text-white flex items-center justify-center flex-shrink-0">📞</span>
-                    <div>
-                      <div className="font-medium">Call the studio</div>
-                      <div className="text-xs text-[var(--fg-subtle)]">{SITE.phoneDisplay}</div>
-                    </div>
-                  </a>
-                  <a href="/consultation" className="flex items-center gap-3 p-3 rounded-sm hover:bg-[var(--bg-subtle)] transition">
-                    <span className="w-10 h-10 rounded-full bg-[var(--accent)] text-white flex items-center justify-center flex-shrink-0">📅</span>
-                    <div>
-                      <div className="font-medium">Book a site visit</div>
-                      <div className="text-xs text-[var(--fg-subtle)]">Free · 45 minutes · on-site</div>
-                    </div>
-                  </a>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-
-          <button
-            onClick={() => setOpen(!open)}
-            aria-label={open ? "Close chat" : "Open chat"}
-            aria-expanded={open}
-            className="relative w-14 h-14 rounded-full bg-[var(--oak-500)] text-[var(--graphite-900)] flex items-center justify-center shadow-[var(--shadow-lg)] hover:bg-[var(--oak-400)] transition-colors"
-          >
-            <AnimatePresence mode="wait">
-              {open ? (
-                <motion.span key="x" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} className="text-2xl leading-none">×</motion.span>
-              ) : (
-                <motion.span key="chat" initial={{ scale: 0.5, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.5, opacity: 0 }}>
-                  <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-                  <span className="absolute -top-0.5 -right-0.5 w-3 h-3 rounded-full bg-[var(--accent)] border-2 border-[var(--oak-500)]" />
-                </motion.span>
-              )}
-            </AnimatePresence>
-          </button>
-        </motion.div>
-      )}
-    </AnimatePresence>
+    <motion.a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Chat on WhatsApp"
+      initial={{ scale: 0, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{ delay: 1.2, type: "spring", stiffness: 260, damping: 20 }}
+      className="fixed bottom-[88px] md:bottom-6 right-4 md:right-6 z-50
+                 w-14 h-14 md:w-16 md:h-16 rounded-full
+                 bg-[#25D366] text-white shadow-[0_8px_28px_rgba(37,211,102,0.45)]
+                 flex items-center justify-center
+                 hover:bg-[#1ebe5b] hover:scale-105 active:scale-95
+                 transition-[background-color,transform] duration-200
+                 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brass)]"
+    >
+      {/* WhatsApp glyph */}
+      <svg viewBox="0 0 32 32" className="w-7 h-7 md:w-8 md:h-8" fill="currentColor" aria-hidden>
+        <path d="M19.11 17.27c-.28-.14-1.64-.81-1.9-.9-.26-.1-.45-.14-.64.14-.19.28-.73.9-.9 1.08-.16.18-.33.2-.61.07-.28-.14-1.17-.43-2.23-1.38-.82-.73-1.38-1.64-1.54-1.91-.16-.28-.02-.43.12-.57.12-.12.28-.33.42-.49.14-.17.19-.28.28-.47.09-.19.05-.36-.02-.5-.07-.14-.64-1.54-.87-2.1-.23-.55-.47-.48-.64-.49l-.55-.01c-.19 0-.49.07-.75.36-.26.28-.98.96-.98 2.33 0 1.38 1 2.71 1.14 2.9.14.18 1.98 3.02 4.8 4.24.67.29 1.19.46 1.6.59.67.21 1.28.18 1.76.11.54-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.12-.26-.18-.54-.32zM16 4C9.37 4 4 9.37 4 16c0 2.26.63 4.36 1.71 6.16L4 28l6-1.67A11.94 11.94 0 0 0 16 28c6.63 0 12-5.37 12-12S22.63 4 16 4z"/>
+      </svg>
+      {/* Pulse ring */}
+      <span className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-25" aria-hidden />
+      {/* Tooltip on desktop */}
+      <span className="hidden md:flex items-center gap-2 absolute right-full mr-3 px-3 py-2
+                       bg-[var(--charcoal)] text-white text-xs font-medium uppercase tracking-widest
+                       rounded-pill whitespace-nowrap opacity-0 group-hover:opacity-100
+                       pointer-events-none transition-opacity">
+        WhatsApp · ~15 min
+      </span>
+    </motion.a>
   );
 }

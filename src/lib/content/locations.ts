@@ -79,8 +79,8 @@ export const LOCATIONS: LocationContent[] = [
         a: "Our per-square-foot bands are the same across Lahore. The bill difference comes from (a) building access (apartments above 10th floor cost 4–6% more in material handling), (b) society restrictions on work hours (adds 1–2 weeks), and (c) finishes you choose — not the neighbourhood.",
       },
     ],
-    phone: "+92 300 000 0000",
-    address: "Plot 42, Sundar Industrial Road, Lahore, Punjab",
+    phone: "+92 322 4000768",
+    address: "M-71, Zainab Tower, Model Town Link Road, Lahore 54700",
   },
 ];
 

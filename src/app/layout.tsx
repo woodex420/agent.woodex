@@ -22,25 +22,25 @@ import { draftMode } from "next/headers";
 
 export const metadata: Metadata = {
   title: {
-    default: "Woodex Interior — Lahore design-and-build studio · 3D-first · 98% on-time",
+    default: "Woodex Interior — Design + Build for Workplaces & Commercial Spaces · Lahore",
     template: "%s · Woodex Interior",
   },
   description:
-    "Design-and-build interior studio in Lahore since 2014. 240+ projects delivered, PKR 2,200–9,000/sqft, 10-day formal quotes, 48-hour budget ranges. Commercial, residential, corporate, retail, turnkey, 3D.",
-  metadataBase: new URL("https://woodex.studio"),
+    "Woodex Interior is a Lahore-based Design + Build studio for corporate workplaces, office fit-out, retail and hospitality. See the room before it exists. Approved in 3D. Delivered on the contract date.",
+  metadataBase: new URL("https://woodex.com.pk"),
   openGraph: {
     type: "website",
-    title: "Woodex Interior — Lahore design-and-build studio",
+    title: "Woodex Interior — Designed. Built. Made by Woodex.",
     description:
-      "240+ projects delivered, 98% on the contract date, PKR 2,200–9,000/sqft. Approve it in 3D. Get exactly that.",
+      "Design + Build for workplaces & commercial spaces in Lahore. 3D-first, workshop-built, 98% on the contract date.",
     locale: "en_PK",
     siteName: "Woodex Interior",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Woodex Interior — Lahore design-and-build",
+    title: "Woodex Interior — Designed. Built. Made by Woodex.",
     description:
-      "240+ projects, 98% on-time, fixed-price, Friday-report delivery.",
+      "Corporate workplaces · Office fit-out · Retail · Hospitality — Lahore.",
   },
   alternates: {
     canonical: "/",
@@ -53,8 +53,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html lang="en" suppressHydrationWarning className={`${fontSans.variable} ${fontDisplay.variable} ${fontMono.variable}`} data-theme="light">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-        <meta name="theme-color" content="#a6804a" media="(prefers-color-scheme: light)" />
-        <meta name="theme-color" content="#0b0b0b" media="(prefers-color-scheme: dark)" />
+        <meta name="theme-color" content="#A98252" media="(prefers-color-scheme: light)" />
+        <meta name="theme-color" content="#1E1E1C" media="(prefers-color-scheme: dark)" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />

@@ -52,13 +52,13 @@ export default defineType({
       name: "secondaryLabel",
       title: "Secondary label",
       type: "string",
-      initialValue: "Or call +92 300 000 0000",
+      initialValue: "Or call +92 322 4000768",
     }),
     defineField({
       name: "secondaryHref",
       title: "Secondary link (tel: / wa.me / ...)",
       type: "string",
-      initialValue: "tel:+923000000000",
+      initialValue: "tel:+923224000768",
     }),
     defineField({
       name: "stats",

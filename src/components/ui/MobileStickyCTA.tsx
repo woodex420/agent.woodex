@@ -47,7 +47,7 @@ export default function MobileStickyCTA() {
         href="/consultation"
         className="flex-[1.3] flex items-center justify-center gap-2 py-3 rounded-full bg-[var(--oak-500)] text-white text-xs uppercase tracking-widest font-medium hover:bg-[var(--oak-600)] transition-colors min-h-[44px]"
       >
-        Book visit
+        Start project
       </Link>
     </div>
   );
