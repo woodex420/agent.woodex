@@ -45,7 +45,7 @@ const PROCESS = [
 
 const PROJECTS = [
   { href: "/portfolio/nishat-hospitality-hq", image: "/images/svc-corporate.jpg", title: "Nishat Hospitality HQ", category: "Corporate", location: "Gulberg, Lahore", year: "2024" },
-  { href: "/portfolio/systems-ltd-floor-12", image: "/images/svc-commercial.jpg", title: "Systems Ltd — Floor 12", category: "Commercial", location: "IT Heights, Lahore", year: "2023" },
+  { href: "/portfolio/systems-ltd-floor-12", image: "/images/svc-commercial.jpg", title: "Systems Ltd — Floor 12", accentWord: "12", category: "Commercial", location: "IT Heights, Lahore", year: "2023" },
   { href: "/portfolio/cafe-zouk-gulberg-reno", image: "/images/hero-turnkey.jpg", title: "Café Zouk Gulberg Reno", category: "Hospitality", location: "Gulberg, Lahore", year: "2024" },
   { href: "/portfolio/packages-mall-flagship", image: "/images/svc-retail.jpg", title: "Packages Mall Flagship", category: "Retail", location: "Lahore", year: "2024" },
   { href: "/portfolio/dha-residence", image: "/images/svc-residential.jpg", title: "DHA Phase 5 Residence", category: "Residential", location: "DHA Lahore", year: "2023" },
@@ -113,7 +113,7 @@ export default function HomePage() {
         <div className="container-x">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
             <SectionIntro kicker="Selected work" heading={<>Designed around people.<br /><em className="italic-serif text-[var(--wood)]">Built around purpose.</em></>} />
-            <LinoxaButton variant="outline-navy" href="/work">View all work</LinoxaButton>
+            <LinoxaButton variant="outline" href="/work">View all work</LinoxaButton>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {PROJECTS.slice(0,6).map((p, i) => <ProjectCard key={p.href} {...p} index={i} />)}
