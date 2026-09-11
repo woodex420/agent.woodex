@@ -1,172 +1,155 @@
 @import "tailwindcss";
 
 /* ============================================
-   WOODEX INTERIOR — DESIGN TOKENS v4.0 (Relaunch Sprint 0)
-   Walnut / Brass / Ivory · Plus Jakarta Sans · Premium architectural
-   Source palette: 90-day Master Plan (walnut/charcoal/ivory/stone/brass/sage)
-   + DESIGN.md (ink/muted/wood). Legacy --oak-* names kept for component compat.
+   LINOXA MASTER THEME — Woodex Interior
+   Navy / Cream / Wood · Plus Jakarta Sans
+   Per DESIGN.md v1.0 (locked) + Linoxa Webflow reference
    ============================================ */
 
 :root {
-  /* ---- Relaunch brand palette (canonical names) ---- */
-  --ivory:       #F3EFE7;  /* Warm ivory — page base */
-  --ivory-2:     #E8DFD2;  /* ivory -1 */
-  --stone:       #C9BFB1;  /* Natural stone */
-  --wood:        #b8956a;  /* Wood mid (from DESIGN.md) */
-  --brass:       #A98252;  /* Muted brass — primary warm */
-  --brass-deep:  #86663f;
-  --brass-dark:  #624a2d;
-  --walnut:      #443229;  /* Deep walnut */
-  --walnut-deep: #2b1f19;
-  --charcoal:    #1E1E1C;  /* Charcoal — near-black */
-  --charcoal-2:  #12151c;  /* Ink (from DESIGN.md) */
-  --muted:       #6a6560;  /* Muted text */
-  --sage:        #687064;  /* Sage — secondary accent */
+  /* ---- Linoxa palette (locked per DESIGN.md) ---- */
+  --navy:        #0c1628;
+  --navy-2:      #121e34;
+  --card:        #152033;
+  --cream:       #f4efe7;
+  --cream-2:     #ebe4d7;
+  --ink:         #12151c;
+  --muted:       #6a6560;
+  --wood:        #b8956a;
+  --wood-deep:   #8c6d45;
+  --line-cream:  rgba(244,239,231,0.14);
+  --line-navy:   rgba(12,22,40,0.10);
 
-  /* ---- Legacy aliases (so existing bg-[var(--oak-500)] etc keep working) ---- */
-  --oak-50:  var(--ivory);
-  --oak-100: var(--ivory-2);
-  --oak-200: var(--stone);
+  /* Legacy semantic aliases (so existing Tailwind utility colors keep working) */
+  --oak-50:  var(--cream);
+  --oak-100: var(--cream-2);
+  --oak-200: #ddcfb7;
   --oak-300: var(--wood);
   --oak-400: var(--wood);
-  --oak-500: var(--brass);     /* primary warm */
-  --oak-600: var(--brass-deep);
-  --oak-700: var(--brass-dark);
-  --oak-800: var(--walnut);
-  --oak-900: var(--walnut-deep);
-
-  --graphite-50:  #f6f5f3;
-  --graphite-100: #e8e4dc;
-  --graphite-200: #d1cbc0;
-  --graphite-300: #a8a196;
-  --graphite-400: #857e73;
+  --oak-500: var(--wood);
+  --oak-600: var(--wood-deep);
+  --oak-700: #6a5332;
+  --oak-800: var(--navy);
+  --oak-900: #070d19;
+  --graphite-900: var(--ink);
+  --graphite-950: var(--navy);
+  --graphite-800: var(--navy-2);
+  --graphite-700: var(--card);
   --graphite-500: var(--muted);
-  --graphite-600: #534e48;
-  --graphite-700: #3f3a35;
-  --graphite-800: #2b2723;
-  --graphite-900: var(--charcoal);   /* near-black */
-  --graphite-950: #0f0d0b;
+  --graphite-400: #8a847e;
+  --graphite-200: #d5cec1;
+  --graphite-100: #e7e1d5;
+  --graphite-50:  #f7f2e8;
+  --accent:       var(--wood);
+  --accent-hover: var(--wood-deep);
+  --accent-on-dark: var(--wood);
+  --oak-400-on-dark: #d4b589;
+  --success:      #4a7c59;
+  --warning:      #c79a47;
+  --error:        #b14040;
 
-  /* Accent is brass (one warm metal, no competing terracotta per DESIGN.md "no extra accent") */
-  --accent:       var(--brass);
-  --accent-hover: var(--brass-deep);
-  --accent-on-dark: #d4af7a;  /* light brass hits 4.5:1 on charcoal */
-  --oak-400-on-dark: #d4af7a;
-  --success:      var(--sage);
-  --warning:      #b88838;
-  --error:        #a83c3c;
-
-  /* Semantic — Light theme (default) */
-  --bg:           var(--ivory);
+  /* ---- Semantic (Light = Cream by default) ---- */
+  --bg:           var(--cream);
   --bg-elevated:  #ffffff;
-  --bg-subtle:    var(--ivory-2);
-  --bg-invert:    var(--charcoal);
-  --fg:           var(--charcoal-2);
+  --bg-subtle:    var(--cream-2);
+  --bg-invert:    var(--navy);
+  --fg:           var(--ink);
   --fg-muted:     var(--muted);
-  --fg-subtle:    var(--graphite-400);
-  --fg-invert:    var(--ivory);
-  --border:       rgba(30,30,28,0.10);
-  --border-strong:rgba(30,30,28,0.22);
-  --ring:         var(--brass);
+  --fg-subtle:    #8a847e;
+  --fg-invert:    var(--cream);
+  --border:       var(--line-navy);
+  --border-strong:rgba(12,22,40,0.22);
+  --ring:         var(--wood);
 
-  /* Surfaces */
   --surface-1:    #ffffff;
-  --surface-2:    var(--ivory);
-  --surface-3:    var(--charcoal);
-  --overlay:      rgba(15,13,11,0.60);
+  --surface-2:    var(--cream);
+  --surface-3:    var(--navy);
+  --overlay:      rgba(7,13,25,0.65);
 
-  /* Typography scale — fluid via clamp */
-  --fs-display:   clamp(2.3rem, 6vw + 1rem, 6.5rem);
-  --fs-h1:        clamp(2.0rem, 4.2vw + 0.6rem, 4.75rem);
-  --fs-h2:        clamp(1.75rem, 2.8vw + 0.6rem, 3rem);
-  --fs-h3:        clamp(1.3rem, 1.4vw + 0.8rem, 1.9rem);
-  --fs-lead:      clamp(1.05rem, 0.55vw + 0.95rem, 1.25rem);
-  --fs-body:      clamp(0.98rem, 0.2vw + 0.93rem, 1.1rem);
+  /* ---- Typography (Plus Jakarta Sans 300–700, single family) ---- */
+  --fs-display:   clamp(2.8rem, 8vw + 1rem, 8rem);
+  --fs-h1:        clamp(2.4rem, 5vw + 0.8rem, 5.5rem);
+  --fs-h2:        clamp(2rem, 3.2vw + 0.8rem, 3.75rem);
+  --fs-h3:        clamp(1.4rem, 1.3vw + 1rem, 2.1rem);
+  --fs-lead:      clamp(1.05rem, 0.4vw + 0.98rem, 1.3rem);
+  --fs-body:      clamp(0.98rem, 0.15vw + 0.95rem, 1.1rem);
   --fs-small:     0.85rem;
-  --fs-micro:     0.75rem;
-  --fs-kicker:    0.72rem;
+  --fs-micro:     0.74rem;
+  --fs-kicker:    0.70rem;
 
-  /* Spacing scale */
-  --sp-1:  0.25rem;
-  --sp-2:  0.5rem;
-  --sp-3:  0.75rem;
-  --sp-4:  1rem;
-  --sp-5:  1.25rem;
-  --sp-6:  1.5rem;
-  --sp-8:  2rem;
-  --sp-10: 2.5rem;
-  --sp-12: 3rem;
-  --sp-16: 4rem;
-  --sp-20: 5rem;
-  --sp-24: 6rem;
-  --sp-32: 8rem;
-  --sp-section: clamp(4rem, 10vw, 8rem);
+  /* ---- Spacing ---- */
+  --sp-1: 0.25rem; --sp-2: 0.5rem; --sp-3: 0.75rem; --sp-4: 1rem;
+  --sp-5: 1.25rem; --sp-6: 1.5rem; --sp-8: 2rem; --sp-10: 2.5rem;
+  --sp-12: 3rem; --sp-16: 4rem; --sp-20: 5rem; --sp-24: 6rem; --sp-32: 8rem;
+  --sp-section: clamp(5rem, 11vw, 9rem);
 
-  /* Radii — DESIGN.md scale: 24 / 16 / 12 / pill */
-  --r-sm:   0.75rem;   /* 12px — inputs */
-  --r-md:   1rem;      /* 16px — inner */
-  --r-lg:   1.5rem;    /* 24px — cards */
-  --r-xl:   1.5rem;    /* alias */
-  --r-full: 9999px;    /* pill */
+  /* ---- Radii — Linoxa: 24/16/12/pill ---- */
+  --r-sm:   0.75rem;   /* 12px */
+  --r-md:   1rem;      /* 16px */
+  --r-lg:   1.5rem;    /* 24px */
+  --r-xl:   1.5rem;
+  --r-full: 9999px;
 
-  /* Motion DNA — Linoxa primary ease per DESIGN.md */
+  /* ---- Motion (Linoxa ease per DESIGN.md) ---- */
   --ease-linoxa:    cubic-bezier(0.22, 1, 0.36, 1);
   --ease-out-expo:  cubic-bezier(0.16, 1, 0.3, 1);
   --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
   --ease-in-out:    cubic-bezier(0.65, 0, 0.35, 1);
-  --dur-fast:    200ms;
-  --dur-base:    400ms;
-  --dur-med:     650ms;
-  --dur-slow:    900ms;
-  --dur-cinematic: 1400ms;
+  --dur-fast:    250ms;
+  --dur-base:    500ms;
+  --dur-med:     700ms;
+  --dur-slow:    1000ms;
+  --dur-cine:    1500ms;
 
-  /* Layout */
-  --container:  min(1280px, 92vw);
-  --gutter:     clamp(1rem, 3vw, 2rem);
-  --nav-h:      4.75rem;
+  /* ---- Layout ---- */
+  --container: min(1320px, 92vw);
+  --gutter:    clamp(1rem, 3vw, 2.5rem);
+  --nav-h:     5.5rem;
 
-  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.06);
-  --shadow-md: 0 4px 12px rgba(0,0,0,0.06), 0 10px 30px rgba(0,0,0,0.08);
-  --shadow-lg: 0 20px 60px rgba(0,0,0,0.15);
+  --shadow-sm: 0 1px 2px rgba(12,22,40,0.04), 0 1px 3px rgba(12,22,40,0.05);
+  --shadow-md: 0 8px 24px rgba(12,22,40,0.08), 0 20px 50px rgba(12,22,40,0.10);
+  --shadow-lg: 0 30px 80px rgba(12,22,40,0.18);
 }
 
-/* Dark theme */
+/* Dark / navy-page mode — used on cine hero + dark sections */
 [data-theme="dark"] {
-  --bg:           var(--graphite-950);
-  --bg-elevated:  var(--graphite-900);
-  --bg-subtle:    var(--graphite-800);
-  --bg-invert:    var(--oak-50);
-  --fg:           var(--oak-50);
-  --fg-muted:     var(--graphite-300);
-  --fg-subtle:    var(--graphite-500);
-  --fg-invert:    var(--graphite-900);
-  --border:       rgba(255,255,255,0.10);
-  --border-strong:rgba(255,255,255,0.20);
-  --surface-1:    var(--graphite-900);
-  --surface-2:    var(--graphite-800);
-  --surface-3:    var(--oak-100);
-  --shadow-sm: 0 1px 2px rgba(0,0,0,0.30), 0 1px 3px rgba(0,0,0,0.40);
-  --shadow-md: 0 4px 12px rgba(0,0,0,0.40), 0 10px 30px rgba(0,0,0,0.50);
-  --shadow-lg: 0 20px 60px rgba(0,0,0,0.60);
+  --bg:           var(--navy);
+  --bg-elevated:  var(--navy-2);
+  --bg-subtle:    var(--card);
+  --bg-invert:    var(--cream);
+  --fg:           var(--cream);
+  --fg-muted:     rgba(244,239,231,0.65);
+  --fg-subtle:    rgba(244,239,231,0.45);
+  --fg-invert:    var(--navy);
+  --border:       var(--line-cream);
+  --border-strong:rgba(244,239,231,0.28);
+  --surface-1:    var(--navy-2);
+  --surface-2:    var(--card);
+  --surface-3:    var(--cream);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.4), 0 1px 3px rgba(0,0,0,0.3);
+  --shadow-md: 0 8px 24px rgba(0,0,0,0.5), 0 20px 50px rgba(0,0,0,0.4);
+  --shadow-lg: 0 30px 80px rgba(0,0,0,0.6);
 }
+
+/* Light-page nav override per DESIGN.md: navy bar on cream pages */
+body.light-page { --nav-text: var(--ink); --nav-bg: var(--cream); }
 
 @theme inline {
-  /* Map semantic tokens to Tailwind */
-  --color-bg:           var(--bg);
-  --color-bg-elevated:  var(--bg-elevated);
-  --color-bg-subtle:    var(--bg-subtle);
-  --color-bg-invert:    var(--bg-invert);
-  --color-fg:           var(--fg);
-  --color-fg-muted:     var(--fg-muted);
-  --color-fg-subtle:    var(--fg-subtle);
-  --color-fg-invert:    var(--fg-invert);
-  --color-border:       var(--border);
-  --color-border-strong:var(--border-strong);
-  --color-surface-1:    var(--surface-1);
-  --color-surface-2:    var(--surface-2);
-  --color-surface-3:    var(--surface-3);
-  --color-overlay:      var(--overlay);
-  --color-ring:         var(--ring);
+  --color-bg: var(--bg);
+  --color-bg-elevated: var(--bg-elevated);
+  --color-bg-subtle: var(--bg-subtle);
+  --color-bg-invert: var(--bg-invert);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-fg-subtle: var(--fg-subtle);
+  --color-fg-invert: var(--fg-invert);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-surface-1: var(--surface-1);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-overlay: var(--overlay);
+  --color-ring: var(--ring);
 
   --color-oak-50: var(--oak-50);
   --color-oak-100: var(--oak-100);
@@ -179,50 +162,28 @@
   --color-oak-800: var(--oak-800);
   --color-oak-900: var(--oak-900);
 
-  --color-graphite-50: var(--graphite-50);
-  --color-graphite-100: var(--graphite-100);
-  --color-graphite-200: var(--graphite-200);
-  --color-graphite-300: var(--graphite-300);
-  --color-graphite-400: var(--graphite-400);
-  --color-graphite-500: var(--graphite-500);
-  --color-graphite-600: var(--graphite-600);
-  --color-graphite-700: var(--graphite-700);
-  --color-graphite-800: var(--graphite-800);
-  --color-graphite-900: var(--graphite-900);
-  --color-graphite-950: var(--graphite-950);
+  --color-navy: var(--navy);
+  --color-navy-2: var(--navy-2);
+  --color-card: var(--card);
+  --color-cream: var(--cream);
+  --color-cream-2: var(--cream-2);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-wood: var(--wood);
+  --color-wood-deep: var(--wood-deep);
 
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
   --color-accent-on-dark: var(--accent-on-dark);
-  --color-oak-400-on-dark: var(--oak-400-on-dark);
-  --color-success: var(--success);
-  --color-warning: var(--warning);
-  --color-error: var(--error);
 
-  /* Relaunch palette aliases */
-  --color-ivory: var(--ivory);
-  --color-ivory-2: var(--ivory-2);
-  --color-stone: var(--stone);
-  --color-wood: var(--wood);
-  --color-brass: var(--brass);
-  --color-brass-deep: var(--brass-deep);
-  --color-brass-dark: var(--brass-dark);
-  --color-walnut: var(--walnut);
-  --color-walnut-deep: var(--walnut-deep);
-  --color-charcoal: var(--charcoal);
-  --color-charcoal-2: var(--charcoal-2);
-  --color-muted: var(--muted);
-  --color-sage: var(--sage);
+  --font-display: var(--font-geist-sans), "Plus Jakarta Sans", ui-sans-serif, system-ui;
+  --font-sans: var(--font-geist-sans), "Plus Jakarta Sans", ui-sans-serif, system-ui;
+  --font-mono: var(--font-mono), ui-monospace;
 
-  /* Plus Jakarta Sans single family (DESIGN.md: no second typeface) */
-  --font-display: var(--font-geist-sans), "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --font-sans: var(--font-geist-sans), "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --font-mono: var(--font-mono), "JetBrains Mono", ui-monospace, monospace;
-
+  --ease-linoxa: var(--ease-linoxa);
   --ease-out-expo: var(--ease-out-expo);
   --ease-out-quart: var(--ease-out-quart);
   --ease-in-out: var(--ease-in-out);
-  --ease-linoxa: var(--ease-linoxa);
 }
 
 /* ============================================
@@ -231,205 +192,207 @@
 * { box-sizing: border-box; }
 
 html, body {
-  margin: 0;
-  padding: 0;
-  background: var(--bg);
-  color: var(--fg);
+  margin: 0; padding: 0;
+  background: var(--bg); color: var(--fg);
   font-family: var(--font-sans);
   font-size: var(--fs-body);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  font-weight: 400;
 }
 
-html { scroll-behavior: auto; /* Lenis handles this */ }
-
-/* Lenis required */
 html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
 .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
 .lenis.lenis-stopped { overflow: hidden; }
 
-::selection { background: var(--oak-400); color: var(--graphite-900); }
-[data-theme="dark"] ::selection { background: var(--oak-400-on-dark); color: var(--graphite-900); }
+::selection { background: var(--wood); color: var(--navy); }
+[data-theme="dark"] ::selection { background: var(--wood); color: var(--navy); }
 
-/* Tabular numbers for stats/currency */
-.tabnum { font-variant-numeric: tabular-nums; }
-
-/* Arrow drift utility — apply to inline arrows inside .group */
-.arrow { display: inline-block; transition: transform 300ms var(--ease-out-quart); }
-.group:hover .arrow { transform: translateX(3px); }
-
-/* Skip-to-content link */
-.skip-link {
-  position: absolute;
-  top: -100px;
-  left: 1rem;
-  z-index: 100;
-  padding: 0.75rem 1.25rem;
-  background: var(--oak-500);
-  color: white;
-  border-radius: var(--r-sm);
-  font-weight: 600;
-  font-size: 0.85rem;
-  transition: top 200ms var(--ease-out-quart);
-}
-.skip-link:focus { top: 1rem; outline: 2px solid var(--oak-200); outline-offset: 2px; }
-
-/* Mobile sticky CTA bar */
-.mobile-sticky-cta {
-  position: fixed;
-  bottom: 0; left: 0; right: 0;
-  z-index: 40;
-  background: var(--bg-elevated);
-  border-top: 1px solid var(--border);
-  padding: 0.6rem var(--gutter) calc(0.6rem + env(safe-area-inset-bottom, 0px));
-  display: none;
-}
-@media (max-width: 767px) {
-  .mobile-sticky-cta { display: flex; gap: 0.5rem; }
-  body { padding-bottom: 70px; } /* make room */
-}
-
-/* Sticky category pills */
-.sticky-pills {
-  position: sticky;
-  top: var(--nav-h);
-  z-index: 20;
-  background: color-mix(in srgb, var(--bg) 92%, transparent);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border);
-}
+a { color: inherit; text-decoration: none; transition: color var(--dur-fast) var(--ease-out-quart); }
+a:hover { color: var(--wood-deep); }
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+:focus-visible { outline: 2px solid var(--wood); outline-offset: 3px; border-radius: var(--r-sm); }
 
 img, svg, video { display: block; max-width: 100%; }
 
 h1, h2, h3, h4, h5 {
   font-family: var(--font-display);
   font-weight: 500;
-  line-height: 1.08;
-  letter-spacing: -0.02em;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
   margin: 0;
   text-wrap: balance;
 }
-h1 { font-size: var(--fs-h1); font-weight: 600; line-height: 1.03; letter-spacing: -0.03em; }
-h2 { font-size: var(--fs-h2); font-weight: 600; line-height: 1.06; }
-h3 { font-size: var(--fs-h3); font-weight: 600; line-height: 1.15; letter-spacing: -0.015em; }
+h1 { font-size: var(--fs-h1); font-weight: 600; line-height: 1.0; letter-spacing: -0.035em; }
+h2 { font-size: var(--fs-h2); font-weight: 500; line-height: 1.05; }
+h3 { font-size: var(--fs-h3); font-weight: 500; line-height: 1.15; letter-spacing: -0.015em; }
+p  { margin: 0 0 var(--sp-4); text-wrap: pretty; }
 
-p { margin: 0 0 var(--sp-4); text-wrap: pretty; }
-
-a {
-  color: inherit;
-  text-decoration: none;
-  transition: color var(--dur-fast) var(--ease-out-quart);
-}
-a:hover { color: var(--oak-500); }
-
-button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
-
-:focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; border-radius: var(--r-sm); }
-
-/* Display type treatment (PJS single family — italic stays) */
 .font-display { font-family: var(--font-display); }
-.italic-serif {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 400;
-}
+.italic-serif { font-family: var(--font-display); font-style: italic; font-weight: 400; }
 
-/* Kicker / eyebrow — standardize across all sections */
+/* ---- Kicker ---- */
 .kicker {
   font-size: var(--fs-kicker);
   text-transform: uppercase;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.28em;
   color: var(--fg-muted);
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.85rem;
   font-weight: 500;
 }
 .kicker::before {
-  content: "";
-  width: 2rem;
-  height: 1px;
-  background: var(--oak-500);
+  content: ""; width: 2.25rem; height: 1px;
+  background: var(--wood);
   flex-shrink: 0;
 }
 .kicker--center { justify-content: center; }
 .kicker--center::before { display: none; }
-/* On inverted / warm bg — kicker dash becomes currentColor for contrast */
-.bg-\[var\(--oak-500\)\] .kicker::before,
-[data-kicker-invert] .kicker::before { background: currentColor; opacity: 0.6; }
+[data-kicker-invert] .kicker::before,
+.bg-\[var\(--navy\)\] .kicker::before { background: currentColor; opacity: 0.55; }
 
-/* Utilities */
+/* ---- Utilities ---- */
 .container-x { width: var(--container); margin-inline: auto; padding-inline: var(--gutter); }
 .section-pad { padding-block: var(--sp-section); }
+.tabnum { font-variant-numeric: tabular-nums; }
+.arrow { display: inline-block; transition: transform var(--dur-base) var(--ease-linoxa); }
+.group:hover .arrow { transform: translateX(6px); }
 
-/* Inner hero — DESIGN.md: 520px tall for every non-cine page (range 450–600).
-   Apply to inner-page hero sections; cine hero on Home + 3D Studio stays full-viewport. */
-.inner-hero {
-  min-height: clamp(440px, 58vh, 560px);
-  padding-top: calc(var(--nav-h) + 2rem);
-  position: relative;
+.skip-link {
+  position: absolute; top: -100px; left: 1rem; z-index: 100;
+  padding: 0.75rem 1.25rem; background: var(--wood); color: var(--navy);
+  border-radius: var(--r-full); font-weight: 600; font-size: 0.8rem;
+  transition: top 200ms var(--ease-out-quart);
 }
+.skip-link:focus { top: 1rem; }
 
-.kbd {
-  font-family: var(--font-mono);
-  font-size: var(--fs-micro);
-  padding: 0.15rem 0.4rem;
-  border: 1px solid var(--border);
-  border-radius: var(--r-sm);
-  background: var(--bg-subtle);
-}
-
-/* Noise overlay - premium film grain */
 .noise::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.035;
-  mix-blend-mode: overlay;
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  opacity: 0.04; mix-blend-mode: overlay; z-index: 1;
   background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
-  z-index: 2;
 }
-
-/* Hide scrollbar utility */
 .scrollbar-none { scrollbar-width: none; -ms-overflow-style: none; }
 .scrollbar-none::-webkit-scrollbar { display: none; }
 
+/* Linoxa circular arrow icon (used on pill buttons) */
+.linoxa-arrow {
+  width: 2.6rem; height: 2.6rem; border-radius: 999px;
+  border: 1px solid currentColor; display: inline-flex;
+  align-items: center; justify-content: center;
+  transition: transform var(--dur-base) var(--ease-linoxa), background var(--dur-base), color var(--dur-base);
+  flex-shrink: 0;
+}
+.group:hover .linoxa-arrow,
+a:hover .linoxa-arrow,
+button:hover .linoxa-arrow { transform: rotate(-45deg); }
+
+/* Inner hero — 520px per DESIGN.md */
+.inner-hero {
+  min-height: clamp(460px, 62vh, 580px);
+  padding-top: calc(var(--nav-h) + 3rem);
+  padding-bottom: 5rem;
+  position: relative;
+}
+
+/* Cine hero — full viewport on Home + 3D Studio only */
+.cine-hero {
+  height: 100svh; min-height: 700px; width: 100%;
+  position: relative; overflow: hidden;
+}
+
+/* Parallax / tilt */
+[data-tilt] { transition: transform var(--dur-slow) var(--ease-linoxa); transform-style: preserve-3d; will-change: transform; }
+
+/* Mobile sticky CTA */
+.mobile-sticky-cta {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 40;
+  background: var(--cream); border-top: 1px solid var(--border);
+  padding: 0.65rem var(--gutter) calc(0.65rem + env(safe-area-inset-bottom,0));
+  display: none;
+}
+@media (max-width: 820px) {
+  .mobile-sticky-cta { display: flex; gap: 0.5rem; }
+  body { padding-bottom: 76px; }
+}
+
+.sticky-pills {
+  position: sticky; top: var(--nav-h); z-index: 20;
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Linoxa giant wordmark in footer */
+.giant-word {
+  font-size: clamp(4rem, 22vw, 20rem);
+  line-height: 0.85;
+  font-weight: 600;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+}
+
+/* Button pill */
+.btn {
+  display: inline-flex; align-items: center; gap: 0.9rem;
+  padding: 0.85rem 1.5rem 0.85rem 1.75rem;
+  border-radius: var(--r-full);
+  font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.2em;
+  font-weight: 500; white-space: nowrap;
+  transition: all var(--dur-base) var(--ease-linoxa);
+  border: 1px solid transparent;
+  min-height: 44px;
+}
+.btn-dark   { background: var(--navy); color: var(--cream); }
+.btn-dark:hover { background: var(--wood); color: var(--navy); }
+.btn-light  { background: transparent; color: var(--cream); border-color: rgba(244,239,231,0.4); }
+.btn-light:hover { background: var(--cream); color: var(--navy); border-color: var(--cream); }
+.btn-cream  { background: var(--cream); color: var(--navy); }
+.btn-cream:hover { background: var(--wood); color: var(--navy); }
+.btn-outline-cream { background: transparent; color: var(--cream); border: 1px solid rgba(244,239,231,0.3); }
+.btn-outline-navy  { background: transparent; color: var(--navy); border: 1px solid rgba(12,22,40,0.3); }
+.btn-outline-navy:hover { background: var(--navy); color: var(--cream); border-color: var(--navy); }
+.btn-wood   { background: var(--wood); color: var(--navy); }
+.btn-wood:hover { background: var(--wood-deep); color: var(--cream); }
+
+/* Data-anim hooks (DESIGN.md: fade/left/right/scale/clip/up) */
+[data-anim] { opacity: 0; transform: translateY(30px); transition: opacity 900ms var(--ease-linoxa), transform 900ms var(--ease-linoxa); }
+[data-anim="fade"]  { transform: none; }
+[data-anim="up"]    { }
+[data-anim="left"]  { transform: translateX(-40px); }
+[data-anim="right"] { transform: translateX(40px); }
+[data-anim="scale"] { transform: scale(0.94); }
+[data-anim="clip"]  { clip-path: inset(0 100% 0 0); transform: none; }
+[data-anim].in { opacity: 1; transform: none; clip-path: inset(0 0 0 0); }
+
+/* Ken Burns slide class */
+.kb-slide { animation: kb 7.2s var(--ease-linoxa) forwards; }
+@keyframes kb {
+  from { transform: scale(1.12); }
+  to   { transform: scale(1); }
+}
+@media (prefers-reduced-motion: reduce) { .kb-slide { animation: none; transform: none; } }
+
+/* Cine slide crossfade */
+.cine-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.4s var(--ease-linoxa); }
+.cine-slide.active { opacity: 1; }
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
-    scroll-behavior: auto !important;
-  }
+  *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
 }
 
-/* Coarse pointers (touch) — disable hover effects that rely on precise cursor,
-   and hint clip-path animations to degrade to simple fades. Components can read this class. */
+/* Coarse pointers */
 @media (pointer: coarse) {
-  /* Disable magnetic button offsets via class */
   [data-magnetic] { transform: none !important; }
-  /* Larger minimum tap targets */
-  button, a.button, a[role="button"] { min-height: 44px; }
+  button, a.btn, a[role="button"] { min-height: 44px; }
 }
 
-/* Sprint F — Print stylesheet (invoices / Friday Reports) */
+/* Print */
 @media print {
-  *, *::before, *::after { background: transparent !important; color: #000 !important; box-shadow: none !important; text-shadow: none !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  html, body { font-size: 11pt; }
-  nav, footer, [data-print-hidden="true"],
-  .no-print, header > nav, .chat-widget, .preview-toolbar, .consent-banner { display: none !important; }
-  main { padding-top: 0 !important; }
+  *, *::before, *::after { background: transparent !important; color: #000 !important; box-shadow: none !important; }
+  nav, footer, .chat-widget, .mobile-sticky-cta, .consent-banner, .no-print { display: none !important; }
   a, a:visited { color: #000 !important; text-decoration: underline; }
-  a[href]::after { content: " (" attr(href) ")"; font-size: 9pt; color: #555; }
-  a[href^="/"]::after, a[href^="#"]::after, a[href^="javascript:"]::after { content: ""; }
-  h1, h2, h3 { page-break-after: avoid; page-break-inside: avoid; }
-  img, svg, table { page-break-inside: avoid; }
-  pre, blockquote { border-left: 3pt solid #999; padding-left: 8pt; page-break-inside: avoid; }
-  thead { display: table-header-group; }
 }

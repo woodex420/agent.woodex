@@ -1,0 +1,12 @@
+export { default as SectionHero } from "./SectionHero";
+export { default as SectionIntro } from "./SectionIntro";
+export { default as SectionSplit } from "./SectionSplit";
+export { default as SectionGrid } from "./SectionGrid";
+export { default as SectionStats } from "./SectionStats";
+export { default as SectionGallery } from "./SectionGallery";
+export { default as SectionTestimonial } from "./SectionTestimonial";
+export { default as SectionFAQ } from "./SectionFAQ";
+export { default as SectionCTA } from "./SectionCTA";
+export { default as SectionProcess } from "./SectionProcess";
+export { default as SectionMarquee } from "./SectionMarquee";
+export { default as SectionImageText } from "./SectionImageText";
