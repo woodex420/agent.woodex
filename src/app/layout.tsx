@@ -8,6 +8,7 @@ import NavServer from "@/components/layout/Nav.server";
 import Footer from "@/components/layout/Footer";
 import ChatWidget from "@/components/ui/ChatWidget";
 import MobileStickyCTA from "@/components/ui/MobileStickyCTA";
+import ScrollReveal from "@/components/providers/ScrollReveal";
 import JsonLd from "@/components/JsonLd";
 import AppMotionConfig from "@/components/providers/MotionConfig";
 import PreviewToolbar from "@/components/providers/PreviewToolbar";
@@ -87,6 +88,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                   <ChatWidget />
                   <ConsentBanner />
                   <Analytics />
+                  <ScrollReveal />
                   {isDraft && <PreviewToolbar />}
                   <StudioBridge />
                   <ThemePreviewServer />
