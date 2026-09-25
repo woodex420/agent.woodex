@@ -17,10 +17,10 @@ export default function ProjectCard({
   href: string; image: string; title: string; accentWord?: string;
   category: string; location?: string; year?: string; index?: number;
 }) {
-  // Split title: last word becomes italic accent (per Linoxa convention)
+  // Split title: last word (or explicit accentWord) becomes italic accent (per Linoxa convention)
   const words = title.split(" ");
   const last = accentWord ?? words[words.length - 1];
-  const rest = words.slice(0, words.length - (accentWord?0:1)).join(" ");
+  const rest = title.endsWith(last) ? title.slice(0, title.length - last.length).trimEnd() : title;
 
   return (
     <motion.div
